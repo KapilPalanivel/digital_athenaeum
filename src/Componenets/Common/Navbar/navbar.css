@@ -1,0 +1,107 @@
+:root {
+    --maincolor: #265451;
+    --textcolor: white;
+    --secondarycolor: #b7b9ad;
+    --translucentPurple: rgb(0, 0, 0);
+    --x: 0;
+    --y: 0;
+}
+
+.logo-name {
+    font-family: 'Jura', sans-serif;
+    color: var(--textcolor);
+    text-decoration: none;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: calc(var(--y) - 0.5rem);
+    left: calc(var(--x) - 0.5rem);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--translucentPurple);
+    box-shadow: 0 0 10px 10px var(--translucentPurple), 0 0 20px 20px var(--translucentPurple);
+    pointer-events: none;
+    transition: all 0s ease;
+    opacity: 0;
+    overflow: hidden;
+}
+
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    margin: 5px;
+    padding: 0 2rem;
+    background-color: var(--translucentPurple);
+    color: var(--textcolor);
+    border-radius: 3px;
+    transition: background-color 1s ease;
+    overflow: hidden;
+}
+
+nav a {
+    color: var(--textcolor);
+    margin: 0 2rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--secondarycolor);
+}
+
+.nav-btn {
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    color: var(--textcolor);
+    padding: 5px;
+}
+
+header div,
+nav {
+    display: flex;
+    align-items: center;
+    align-items: space-between;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    nav {
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--maincolor);
+        color: var(--textcolor);
+        transition: transform 1s;
+    }
+
+    nav.nav-open {
+        transform: translateY(0);
+    }
+
+    nav.nav-close {
+        transform: translateY(-100vh);
+    }
+}
