@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './navbar.css';
@@ -11,27 +11,9 @@ const Navbar = () => {
         NavRef.current.classList.toggle('nav-close');
     };
 
-    useEffect(() => {
-        const header = document.querySelector('.header');
-
-        const handleMouseMove = (e) => {
-            const x = e.pageX - header.getBoundingClientRect().left;
-            const y = e.pageY - header.getBoundingClientRect().top;
-
-            header.style.setProperty('--x', `${x}px`);
-            header.style.setProperty('--y', `${y}px`);
-        };
-
-        header.addEventListener('mousemove', handleMouseMove);
-
-        return () => {
-            header.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []);
-
     return (
         <header className="header">
-            <Link to="/" className="logo-name"><h3>Digital Athenaeum</h3></Link>
+            <Link to="/" className="logo-name"><h3>Digital<br/>Athenaeum</h3></Link>
             <nav ref={NavRef} className="nav-close">
                 <Link to="/">Music</Link>
                 <Link to="/education">Movies</Link>
@@ -42,6 +24,10 @@ const Navbar = () => {
                     <FaTimes />
                 </button>
             </nav>
+            <div className="left-section">
+                <input type="text" className="search-bar" placeholder="Search..." />
+                <button className="auth-button">Sign In</button>
+            </div>
             <button className="nav-btn" onClick={toggleNavbar}>
                 <FaBars />
             </button>

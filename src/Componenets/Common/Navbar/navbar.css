@@ -3,8 +3,6 @@
     --textcolor: white;
     --secondarycolor: #b7b9ad;
     --translucentPurple: rgb(0, 0, 0);
-    --x: 0;
-    --y: 0;
 }
 
 .logo-name {
@@ -16,8 +14,6 @@
 .header::before {
     content: '';
     position: absolute;
-    top: calc(var(--y) - 0.5rem);
-    left: calc(var(--x) - 0.5rem);
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
@@ -29,14 +25,13 @@
     overflow: hidden;
 }
 
-
 .header {
     display: flex;
     position: sticky;
     top: 0;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 60px;
     margin: 5px;
     padding: 0 2rem;
     background-color: var(--translucentPurple);
@@ -46,9 +41,35 @@
     overflow: hidden;
 }
 
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    padding: 5px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.auth-button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--maincolor);
+    color: var(--textcolor);
+    cursor: pointer;
+}
+
+.auth-button:hover {
+    background-color: var(--secondarycolor);
+}
+
 nav a {
     color: var(--textcolor);
-    margin: 0 2rem;
+    margin: 0 1rem;
     text-decoration: none;
 }
 
@@ -65,13 +86,6 @@ nav a:hover {
     background: transparent;
     color: var(--textcolor);
     padding: 5px;
-}
-
-header div,
-nav {
-    display: flex;
-    align-items: center;
-    align-items: space-between;
 }
 
 @media only screen and (max-width: 1024px) {
