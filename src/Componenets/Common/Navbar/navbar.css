@@ -9,20 +9,10 @@
     font-family: 'Jura', sans-serif;
     color: var(--textcolor);
     text-decoration: none;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background-color: var(--translucentPurple);
-    box-shadow: 0 0 10px 10px var(--translucentPurple), 0 0 20px 20px var(--translucentPurple);
-    pointer-events: none;
-    transition: all 0s ease;
-    opacity: 0;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
 }
 
 .header {
@@ -32,39 +22,24 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    margin: 5px;
     padding: 0 2rem;
     background-color: var(--translucentPurple);
     color: var(--textcolor);
-    border-radius: 3px;
     transition: background-color 1s ease;
     overflow: hidden;
 }
 
-.left-section {
+.logo-container {
+    flex: 1;
     display: flex;
+    justify-content: flex-start;
+}
+
+nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-.search-bar {
-    padding: 5px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 3px;
-}
-
-.auth-button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: var(--maincolor);
-    color: var(--textcolor);
-    cursor: pointer;
-}
-
-.auth-button:hover {
-    background-color: var(--secondarycolor);
 }
 
 nav a {
@@ -88,8 +63,36 @@ nav a:hover {
     padding: 5px;
 }
 
-@media only screen and (max-width: 1024px) {
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
 
+.auth-button {
+    margin-left: 10px;
+    color: var(--textcolor);
+    background: transparent;
+    border: 1px solid var(--textcolor);
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.auth-button:hover {
+    background-color: var(--secondarycolor);
+    border-color: var(--secondarycolor);
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 1024px) {
     .nav-btn {
         visibility: visible;
         opacity: 1;
@@ -117,5 +120,10 @@ nav a:hover {
 
     nav.nav-close {
         transform: translateY(-100vh);
+    }
+
+    .right-section {
+        align-items: center;
+        justify-content: center;
     }
 }
