@@ -7,6 +7,7 @@ const Navbar = () => {
     const navRef = useRef();
 
     const toggleNavbar = () => {
+        // Toggle the classes for opening and closing the navbar
         navRef.current.classList.toggle('nav-open');
         navRef.current.classList.toggle('nav-close');
     };
@@ -19,13 +20,13 @@ const Navbar = () => {
                 </Link>
             </div>
             <nav ref={navRef} className="nav-close">
+                <button className="nav-btn" onClick={toggleNavbar}>
+                    <FaTimes />
+                </button>
                 <Link to="/">Music</Link>
                 <Link to="/education">Movies</Link>
                 <Link to="#">Books</Link>
                 <Link to="#">Forum</Link>
-                <button className="nav-btn nav-close" onClick={toggleNavbar}>
-                    <FaTimes />
-                </button>
             </nav>
             <div className="right-section">
                 <input type="text" className="search-bar" placeholder="Search..." />

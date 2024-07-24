@@ -52,17 +52,6 @@ nav a:hover {
     color: var(--secondarycolor);
 }
 
-.nav-btn {
-    visibility: hidden;
-    opacity: 0;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background: transparent;
-    color: var(--textcolor);
-    padding: 5px;
-}
-
 .right-section {
     flex: 1;
     display: flex;
@@ -92,6 +81,17 @@ nav a:hover {
     border-radius: 3px;
 }
 
+.nav-btn {
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    color: var(--textcolor);
+    padding: 5px;
+}
+
 @media only screen and (max-width: 1024px) {
     .nav-btn {
         visibility: visible;
@@ -100,7 +100,7 @@ nav a:hover {
 
     nav {
         position: fixed;
-        top: -100vh;
+        top: 0; /* Changed to 0 to ensure it's visible */
         left: 0;
         height: 100%;
         width: 100%;
@@ -111,7 +111,7 @@ nav a:hover {
         gap: 1.5rem;
         background-color: var(--maincolor);
         color: var(--textcolor);
-        transition: transform 1s;
+        transition: transform 0.3s ease; /* Adjusted transition duration */
     }
 
     nav.nav-open {
@@ -119,11 +119,6 @@ nav a:hover {
     }
 
     nav.nav-close {
-        transform: translateY(-100vh);
-    }
-
-    .right-section {
-        align-items: center;
-        justify-content: center;
+        transform: translateY(-100%);
     }
 }
