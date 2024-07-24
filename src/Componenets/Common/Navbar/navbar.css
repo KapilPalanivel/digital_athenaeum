@@ -2,7 +2,7 @@
     --maincolor: #265451;
     --textcolor: white;
     --secondarycolor: #b7b9ad;
-    --translucentPurple: rgb(0, 0, 0);
+    --mainblack: rgb(0, 0, 0);
 }
 
 .logo-name {
@@ -23,7 +23,7 @@
     align-items: center;
     height: 60px;
     padding: 0 2rem;
-    background-color: var(--translucentPurple);
+    background-color: var(--mainblack);
     color: var(--textcolor);
     transition: background-color 1s ease;
     overflow: hidden;
@@ -109,7 +109,7 @@ nav a:hover {
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        background-color: var(--maincolor);
+        background-color: var(--mainblack);
         color: var(--textcolor);
         transition: transform 0.3s ease; /* Adjusted transition duration */
     }
