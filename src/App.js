@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Navbar/>
       {/* <Music/> */}
-      {/* <ClientLogin/> */}
-      <Books/>
+      <ClientLogin/>
+      {/* <Books/> */}
     </div>
   );
 }
