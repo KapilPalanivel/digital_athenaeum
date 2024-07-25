@@ -9,13 +9,31 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-left: 20px;
 }
 
 #books_des {
   flex-direction: column;
   margin-top: 20px;
 }
+.book-stats {
+  margin-top: 8px; /* Adjust margin for larger cards */
+  font-size: 0.875rem; /* Slightly larger font size */
+  color: #555;
+  display: flex;      /* Use flexbox layout */
+  flex-direction: row;
+  justify-content: space-around; /* Arrange items in a column */
+}
 
+.book-stats span {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space between stats items */
+}
+
+.book-stats svg {
+  margin-right: 5px; /* Space between the icon and the number */
+}
 #book_p {
   margin: 10px 0;
   line-height: 1.5;
@@ -104,13 +122,19 @@
 .modal-content {
   background: black;
   color: white;
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
   position: relative;
-  margin-top: 30px;
-  max-width: 50%; /* Adjust the width as needed */
-  width: 100%;
-  padding: 20px; /* Adjust padding inside the modal */
+  max-width: 500px; /* Ensures modal width is constrained */
+  margin: auto;
+}
+
+.modal-content img {
+  width: 100%; /* Makes the image fill the width of its container */
+  height: auto; /* Keeps the aspect ratio intact */
+  display: block;
+  object-fit: cover; /* Ensures image covers its container properly */
+  border-bottom: 1px solid #444; /* Optional: Add a border to separate the image from the text */
 }
 
 .modal-close {
@@ -119,7 +143,9 @@
   right: 10px;
   cursor: pointer;
   font-size: 20px;
-  background: transparent;
+  color: transparent;
+}
+.read{
   color: white;
-  border-style: none;
+  text-decoration: none;
 }

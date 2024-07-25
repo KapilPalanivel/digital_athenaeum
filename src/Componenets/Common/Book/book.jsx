@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef, useId } from "react";
+import React, { useEffect, useState, useId } from "react";
+import { FaHeart } from 'react-icons/fa';
 import { AnimatePresence, motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import "./book.css";
@@ -85,17 +86,18 @@ const BookCard = ({ book, onClick }) => (
   <div className="book-card" onClick={onClick}>
     <img src={book.cover} alt={book.title} className="book-cover" />
     <h3>{book.title}</h3>
+    <p className="book-author">{book.author}</p> {/* Add author detail */}
     <div className="book-stats">
       <span>{book.views} views</span>
-      <span>{book.favorites} favorites</span>
-      <span>{book.comments} comments</span>
+      <span>
+        <FaHeart /> {book.favorites} {/* Heart icon for favorites */}
+      </span>
     </div>
   </div>
 );
 
 function Books() {
   const [active, setActive] = useState(null);
-  const ref = useRef(null);
   const id = useId();
 
   useEffect(() => {
@@ -187,7 +189,7 @@ function Books() {
                           <motion.a
                             layoutId={`button-${active.title}-${id}`}
                             href="#"
-                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                            className="read"
                           >
                             Read
                           </motion.a>
