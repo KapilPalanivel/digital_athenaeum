@@ -1,96 +1,59 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React, { useEffect, useState } from "react";
+// import Image from "../assets/image.png";
+// import Logo from "../assets/logo.png";
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
+import './ClientLogin.css';
 
-const defaultTheme = createTheme();
 
-export default function ClientLogin() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+const ClientLogin = () => {
+  const [ showPassword, setShowPassword ] = useState(false);
+
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
+    <div className="login-main">
+      <div className="login-left">
+        <img src="https://img.freepik.com/free-photo/top-view-books-with-flowers-arrangement_23-2149871464.jpg" alt="" />
+      </div>
+      <div className="login-right">
+        <div className="login-right-container">
+          <div className="login-logo">
+            {/* <img src={Logo} alt="" /> */}
+          </div>
+          <div className="login-center">
+            <h2 className="welcome">Welcome back!</h2>
+            <p>Please enter your details</p>
+            <form>
+              <input type="email" placeholder="Email" />
+              <div className="pass-input-div">
+                <input type={showPassword ? "text" : "password"} placeholder="Password" />
+                {showPassword ? <FaEyeSlash onClick={() => {setShowPassword(!showPassword)}} /> : <FaEye onClick={() => {setShowPassword(!showPassword)}} />}
+                
+              </div>
+
+              <div className="login-center-options">
+                
+                <a href="#" className="forgot-pass-link">
                   Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+                </a>
+              </div>
+              {/* <div className="login-center-buttons">
+                <button type="button">Log In</button>
+                <button type="button">
+                  <img src={GoogleSvg} alt="" />
+                  Log In with Google
+                </button>
+              </div> */}
+            </form>
+          </div>
+
+          <p className="login-bottom-p">
+            Don't have an account? <a href="#">Sign Up</a>
+          </p>
+        </div>
+      </div>
+    </div>
   );
-}
+};
+
+export default ClientLogin;
