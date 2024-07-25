@@ -118,23 +118,24 @@
   justify-content: center;
   align-items: center;
 }
-
 .modal-content {
   background: black;
   color: white;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  max-width: 500px; /* Ensures modal width is constrained */
+  max-width: 700px; /* Ensure the modal is still wide enough */
   margin: auto;
 }
 
 .modal-content img {
-  width: 100%; /* Makes the image fill the width of its container */
-  height: auto; /* Keeps the aspect ratio intact */
+  width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover; /* Ensures image covers its container properly */
-  border-bottom: 1px solid #444; /* Optional: Add a border to separate the image from the text */
+  object-fit: contain; /* Ensure the image fits within its container */
+  max-height: 300px; /* Reduce the max height for the image */
+  margin: 0 auto; /* Center the image */
+  margin-top: 50px;
 }
 
 .modal-close {
@@ -143,8 +144,12 @@
   right: 10px;
   cursor: pointer;
   font-size: 20px;
-  color: transparent;
+  color: white;
+  background-color: black;
+  border: none;
 }
+
+
 .read{
   color: white;
   text-decoration: none;

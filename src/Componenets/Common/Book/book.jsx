@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useId } from "react";
+import React, { useEffect, useState, useRef, useId } from "react";
 import { FaHeart } from 'react-icons/fa';
 import { AnimatePresence, motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import "./book.css";
+
 
 const books = [
   {
@@ -81,16 +82,15 @@ const books = [
     ),
   },
 ];
-
 const BookCard = ({ book, onClick }) => (
   <div className="book-card" onClick={onClick}>
     <img src={book.cover} alt={book.title} className="book-cover" />
     <h3>{book.title}</h3>
-    <p className="book-author">{book.author}</p> {/* Add author detail */}
+    <p className="book-author">{book.author}</p>
     <div className="book-stats">
       <span>{book.views} views</span>
       <span>
-        <FaHeart /> {book.favorites} {/* Heart icon for favorites */}
+        <FaHeart /> {book.favorites}
       </span>
     </div>
   </div>
@@ -98,6 +98,7 @@ const BookCard = ({ book, onClick }) => (
 
 function Books() {
   const [active, setActive] = useState(null);
+  const ref = useRef(null);
   const id = useId();
 
   useEffect(() => {
@@ -141,78 +142,80 @@ function Books() {
       </div>
 
       <AnimatePresence>
-            {active && (
-              <>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="modal-overlay"
-                  onClick={() => setActive(null)}
-                >
-                  <motion.div
-                    className="modal-content"
-                    onClick={(e) => e.stopPropagation()} // Prevents clicking inside the modal from closing it
-                  >
-                    <button className="modal-close" onClick={() => setActive(null)}>
-                      &times;
-                    </button>
-                    <motion.div
-                      layoutId={`card-${active.title}-${id}`}
-                      className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
-                    >
-                      <motion.div layoutId={`image-${active.title}-${id}`}>
-                        <img
-                          src={active.cover}
-                          alt={active.title}
-                          className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
-                        />
-                      </motion.div>
-
-                      <div>
-                        <div className="flex justify-between items-start p-4">
-                          <div>
-                            <motion.h3
-                              layoutId={`title-${active.title}-${id}`}
-                              className="font-bold text-neutral-700 dark:text-neutral-200"
-                            >
-                              {active.title}
-                            </motion.h3>
-                            <motion.p
-                              layoutId={`description-${active.description}-${id}`}
-                              className="text-neutral-600 dark:text-neutral-400"
-                            >
-                              {active.description}
-                            </motion.p>
-                          </div>
-
-                          <motion.a
-                            layoutId={`button-${active.title}-${id}`}
-                            href="#"
-                            className="read"
-                          >
-                            Read
-                          </motion.a>
-                        </div>
-                        <div className="pt-4 relative px-4">
-                          <motion.div
-                            layout
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                          >
-                            {typeof active.content === "function" ? active.content() : active.content}
-                          </motion.div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
+        {active && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="modal-overlay"
+            onClick={() => setActive(null)}
+          >
+            <motion.div
+              initial={{ y: "-100vh" }}
+              animate={{ y: 0 }}
+              exit={{ y: "-100vh" }}
+              transition={{ duration: 0.5 }}
+              className="modal-content"
+              onClick={(e) => e.stopPropagation()}
+              style={{ maxWidth: '700px' }} /* Ensure the width matches the CSS */
+            >
+              <button className="modal-close" onClick={() => setActive(null)}>
+                &times;
+              </button>
+              <motion.div
+                layoutId={`card-${active.title}-${id}`}
+                className="w-full h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              >
+                <motion.div layoutId={`image-${active.title}-${id}`}>
+                  <img
+                    src={active.cover}
+                    alt={active.title}
+                    className="w-full h-auto object-contain max-h-[400px] mx-auto"
+                  />
                 </motion.div>
-              </>
-            )}
-          </AnimatePresence>
 
+                <div>
+                  <div className="flex justify-between items-start p-4">
+                    <div>
+                      <motion.h3
+                        layoutId={`title-${active.title}-${id}`}
+                        className="font-bold text-neutral-700 dark:text-neutral-200"
+                      >
+                        {active.title}
+                      </motion.h3>
+                      <motion.p
+                        layoutId={`description-${active.description}-${id}`}
+                        className="text-neutral-600 dark:text-neutral-400"
+                      >
+                        {active.description}
+                      </motion.p>
+                    </div>
+
+                    <motion.a
+                      layoutId={`button-${active.title}-${id}`}
+                      href="#"
+                      className="read"
+                    >
+                      Read
+                    </motion.a>
+                  </div>
+                  <div className="pt-4 relative px-4">
+                    <motion.div
+                      layout
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                    >
+                      {typeof active.content === "function" ? active.content() : active.content}
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
