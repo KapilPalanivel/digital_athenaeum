@@ -1,9 +1,7 @@
 import React, { useEffect, useState, useRef, useId } from "react";
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaSearch } from 'react-icons/fa';
 import { AnimatePresence, motion } from "framer-motion";
-import { FaSearch } from "react-icons/fa";
 import "./book.css";
-
 
 const books = [
   {
@@ -12,7 +10,7 @@ const books = [
     views: "150K",
     favorites: "2",
     comments: "0",
-    cover: "https://lematindalgerie.com/wp-content/uploads/2023/04/BENBADIS.jpg",  // Ensure the path is correct and accessible
+    cover: "https://lematindalgerie.com/wp-content/uploads/2023/04/BENBADIS.jpg",
     description: "A detailed study of the ethnography of Algeria...",
     content: () => (
       <p>
@@ -51,37 +49,8 @@ const books = [
       </p>
     ),
   },
-  {
-    title: "Third Book",
-    author: "Third Author",
-    views: "100K",
-    favorites: "4",
-    comments: "2",
-    cover: "/Book3.jpg",
-    description: "A fascinating exploration of...",
-    content: () => (
-      <p>
-        This book captures the essence of its theme, offering readers a
-        comprehensive overview and analysis.
-      </p>
-    ),
-  },
-  {
-    title: "Third Book",
-    author: "Third Author",
-    views: "100K",
-    favorites: "4",
-    comments: "2",
-    cover: "/Book3.jpg",
-    description: "A fascinating exploration of...",
-    content: () => (
-      <p>
-        This book captures the essence of its theme, offering readers a
-        comprehensive overview and analysis.
-      </p>
-    ),
-  },
 ];
+
 const BookCard = ({ book, onClick }) => (
   <div className="book-card" onClick={onClick}>
     <img src={book.cover} alt={book.title} className="book-cover" />
@@ -98,6 +67,8 @@ const BookCard = ({ book, onClick }) => (
 
 function Books() {
   const [active, setActive] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredBooks, setFilteredBooks] = useState(books);
   const ref = useRef(null);
   const id = useId();
 
@@ -118,6 +89,15 @@ function Books() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
 
+  useEffect(() => {
+    const lowercasedQuery = searchQuery.toLowerCase();
+    const filtered = books.filter(book =>
+      book.title.toLowerCase().includes(lowercasedQuery) ||
+      book.author.toLowerCase().includes(lowercasedQuery)
+    );
+    setFilteredBooks(filtered);
+  }, [searchQuery]);
+
   return (
     <div className="book">
       <div id="book_header">
@@ -132,84 +112,75 @@ function Books() {
         </div>
       </div>
       <div className="search-container">
-        <input type="text" placeholder="Search Books..." />
+        <input 
+          type="text" 
+          placeholder="Search Books..." 
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
         <button><FaSearch />Search</button>
       </div>
       <div className="book-list">
-        {books.map((book, index) => (
-          <BookCard key={index} book={book} onClick={() => setActive(book)} />
-        ))}
+        {filteredBooks.length > 0 ? (
+          filteredBooks.map((book, index) => (
+            <BookCard key={index} book={book} onClick={() => setActive(book)} />
+          ))
+        ) : (
+          <div className="no-results">
+            <p>புக் வேணும்னா என் சுன்னிய புடிச்சு ஊம்பு😟</p>
+          </div>
+        )}
       </div>
 
       <AnimatePresence>
         {active && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ y: "-100vh" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100vh" }}
+            transition={{ duration: 0.5 }}
             className="modal-overlay"
             onClick={() => setActive(null)}
           >
             <motion.div
-              initial={{ y: "-100vh" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100vh" }}
-              transition={{ duration: 0.5 }}
               className="modal-content"
               onClick={(e) => e.stopPropagation()}
-              style={{ maxWidth: '700px' }} /* Ensure the width matches the CSS */
             >
               <button className="modal-close" onClick={() => setActive(null)}>
                 &times;
               </button>
               <motion.div
                 layoutId={`card-${active.title}-${id}`}
-                className="w-full h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                className="w-full h-full flex flex-col items-center bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
               >
                 <motion.div layoutId={`image-${active.title}-${id}`}>
                   <img
                     src={active.cover}
                     alt={active.title}
-                    className="w-full h-auto object-contain max-h-[400px] mx-auto"
+                    className="w-full h-auto object-contain max-height-[300px]"
                   />
                 </motion.div>
 
-                <div>
-                  <div className="flex justify-between items-start p-4">
-                    <div>
-                      <motion.h3
-                        layoutId={`title-${active.title}-${id}`}
-                        className="font-bold text-neutral-700 dark:text-neutral-200"
-                      >
-                        {active.title}
-                      </motion.h3>
-                      <motion.p
-                        layoutId={`description-${active.description}-${id}`}
-                        className="text-neutral-600 dark:text-neutral-400"
-                      >
-                        {active.description}
-                      </motion.p>
-                    </div>
-
-                    <motion.a
-                      layoutId={`button-${active.title}-${id}`}
-                      href="#"
-                      className="read"
-                    >
-                      Read
-                    </motion.a>
-                  </div>
-                  <div className="pt-4 relative px-4">
-                    <motion.div
-                      layout
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                    >
-                      {typeof active.content === "function" ? active.content() : active.content}
-                    </motion.div>
-                  </div>
+                <div className="modal-details">
+                  <motion.h3
+                    layoutId={`title-${active.title}-${id}`}
+                    className="font-bold text-neutral-700 dark:text-neutral-200"
+                  >
+                    {active.title}
+                  </motion.h3>
+                  <motion.p
+                    layoutId={`description-${active.description}-${id}`}
+                    className="text-neutral-600 dark:text-neutral-400"
+                  >
+                    {active.description}
+                  </motion.p>
+                  <motion.a
+                    layoutId={`button-${active.title}-${id}`}
+                    href="#"
+                    className="read-button"
+                  >
+                    Read
+                  </motion.a>
                 </div>
               </motion.div>
             </motion.div>

@@ -1,7 +1,7 @@
 .book {
   font-family: Arial, Helvetica, sans-serif;
   padding: 20px;
-  max-width: 1200px; /* Adjust width as needed */
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -16,24 +16,26 @@
   flex-direction: column;
   margin-top: 20px;
 }
+
 .book-stats {
-  margin-top: 8px; /* Adjust margin for larger cards */
-  font-size: 0.875rem; /* Slightly larger font size */
+  margin-top: 8px;
+  font-size: 0.875rem;
   color: #555;
-  display: flex;      /* Use flexbox layout */
-  flex-direction: row;
-  justify-content: space-around; /* Arrange items in a column */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align items */
 }
 
 .book-stats span {
   display: flex;
   align-items: center;
-  margin-bottom: 10px; /* Space between stats items */
+  margin-bottom: 10px;
 }
 
 .book-stats svg {
-  margin-right: 5px; /* Space between the icon and the number */
+  margin-right: 5px;
 }
+
 #book_p {
   margin: 10px 0;
   line-height: 1.5;
@@ -78,7 +80,7 @@
 .book-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 books per row */
-  gap: 20px; /* Adjust spacing between cards */
+  gap: 20px;
   justify-content: center;
   margin-top: 40px;
 }
@@ -90,8 +92,9 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  height: 400px; /* Adjust height as needed */
+  height: 400px;
   padding: 20px;
+  text-align: center; /* Center text within the card */
 }
 
 .book-cover {
@@ -99,12 +102,6 @@
   height: 200px;
   border-radius: 4px;
   object-fit: cover;
-}
-
-.book-stats {
-  margin-top: 8px;
-  font-size: 0.875rem;
-  color: #555;
 }
 
 .modal-overlay {
@@ -124,33 +121,40 @@
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  max-width: 700px; /* Ensure the modal is still wide enough */
+  max-width: 700px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .modal-content img {
   width: 100%;
   height: auto;
-  display: block;
-  object-fit: contain; /* Ensure the image fits within its container */
-  max-height: 300px; /* Reduce the max height for the image */
-  margin: 0 auto; /* Center the image */
-  margin-top: 50px;
+  object-fit: contain;
+  max-height: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 10px;
   cursor: pointer;
   font-size: 20px;
   color: white;
-  background-color: black;
+  background-color: transparent;
   border: none;
 }
 
+.modal-details {
+  text-align: center;
+  margin-top: 20px; /* Add margin to separate from the image */
+}
 
-.read{
+.read-button {
   color: white;
   text-decoration: none;
 }
