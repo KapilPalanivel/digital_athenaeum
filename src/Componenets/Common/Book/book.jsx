@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import "./book.css";
+import React, { useEffect, useState, useRef, useId } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
+import "./book.css";
 
 const books = [
   {
@@ -9,7 +10,14 @@ const books = [
     views: "150K",
     favorites: "2",
     comments: "0",
-    cover: "Book1.jpg",
+    cover: "https://lematindalgerie.com/wp-content/uploads/2023/04/BENBADIS.jpg",  // Ensure the path is correct and accessible
+    description: "A detailed study of the ethnography of Algeria...",
+    content: () => (
+      <p>
+        This book offers a comprehensive analysis of the various ethnic groups
+        in Algeria, exploring their customs, traditions, and social structures.
+      </p>
+    ),
   },
   {
     title: "Another Book",
@@ -17,7 +25,14 @@ const books = [
     views: "120K",
     favorites: "3",
     comments: "1",
-    cover: "Book2.jpg",
+    cover: "/Book2.jpg",
+    description: "An insightful look into...",
+    content: () => (
+      <p>
+        This book delves into the intricacies of its subject matter, providing
+        readers with a deep understanding of the topic.
+      </p>
+    ),
   },
   {
     title: "Third Book",
@@ -25,7 +40,14 @@ const books = [
     views: "100K",
     favorites: "4",
     comments: "2",
-    cover: "Book3.jpg",
+    cover: "/Book3.jpg",
+    description: "A fascinating exploration of...",
+    content: () => (
+      <p>
+        This book captures the essence of its theme, offering readers a
+        comprehensive overview and analysis.
+      </p>
+    ),
   },
   {
     title: "Third Book",
@@ -33,7 +55,14 @@ const books = [
     views: "100K",
     favorites: "4",
     comments: "2",
-    cover: "Book3.jpg",
+    cover: "/Book3.jpg",
+    description: "A fascinating exploration of...",
+    content: () => (
+      <p>
+        This book captures the essence of its theme, offering readers a
+        comprehensive overview and analysis.
+      </p>
+    ),
   },
   {
     title: "Third Book",
@@ -41,45 +70,56 @@ const books = [
     views: "100K",
     favorites: "4",
     comments: "2",
-    cover: "Book3.jpg",
+    cover: "/Book3.jpg",
+    description: "A fascinating exploration of...",
+    content: () => (
+      <p>
+        This book captures the essence of its theme, offering readers a
+        comprehensive overview and analysis.
+      </p>
+    ),
   },
 ];
 
-const BookCard=({book}) =>(
-  <div className="Book-card">
-    <img src={book.cover} alt={book.title}></img>
+const BookCard = ({ book, onClick }) => (
+  <div className="book-card" onClick={onClick}>
+    <img src={book.cover} alt={book.title} className="book-cover" />
     <h3>{book.title}</h3>
     <div className="book-stats">
-        <span>{book.views} views</span>
-        <span>{book.favorites} favorites</span>
-        <span>{book.comments} comments</span>
+      <span>{book.views} views</span>
+      <span>{book.favorites} favorites</span>
+      <span>{book.comments} comments</span>
     </div>
   </div>
 );
+
 function Books() {
-  const[visibleBooks,setVisibleBooks]=useState(3);
-  
-  const loadMoreBooks = () =>{
-    setVisibleBooks((prevVisibleBooks)=>prevVisibleBooks+3);
-  };
+  const [active, setActive] = useState(null);
+  const ref = useRef(null);
+  const id = useId();
 
-  useEffect(()=>{
-    const handleScroll=()=>{
-      if(
-        window.innerHeight + document.documentElement.scrollTop!==document.documentElement.offsetHeight
-      )
-      return;
-      loadMoreBooks();
-    };
+  useEffect(() => {
+    function onKeyDown(event) {
+      if (event.key === "Escape") {
+        setActive(null);
+      }
+    }
 
-    window.addEventListener("scroll",handleScroll);
-    return()=> window.removeEventListener("scroll",handleScroll);
-  },[]);
+    if (active) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [active]);
+
   return (
-
     <div className="book">
       <div id="book_header">
         <div id="book_icon">
+          {/* Add your book icon here */}
         </div>
         <div id="books_des">
           <h1 id="book_h1">Books</h1>
@@ -88,16 +128,91 @@ function Books() {
           </p>
         </div>
       </div>
-        <div className="search-container">
-          <input type="text" placeholder="Search Books..."></input>
-          <button><FaSearch/>Search</button>
-        </div>
-        <div className="book-list">
-            {books.slice(0,visibleBooks).map((book,index)=>(
-              <BookCard key={index} book={book}/>
-            ))}
-        </div>
+      <div className="search-container">
+        <input type="text" placeholder="Search Books..." />
+        <button><FaSearch />Search</button>
+      </div>
+      <div className="book-list">
+        {books.map((book, index) => (
+          <BookCard key={index} book={book} onClick={() => setActive(book)} />
+        ))}
+      </div>
+
+      <AnimatePresence>
+            {active && (
+              <>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="modal-overlay"
+                  onClick={() => setActive(null)}
+                >
+                  <motion.div
+                    className="modal-content"
+                    onClick={(e) => e.stopPropagation()} // Prevents clicking inside the modal from closing it
+                  >
+                    <button className="modal-close" onClick={() => setActive(null)}>
+                      &times;
+                    </button>
+                    <motion.div
+                      layoutId={`card-${active.title}-${id}`}
+                      className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+                    >
+                      <motion.div layoutId={`image-${active.title}-${id}`}>
+                        <img
+                          src={active.cover}
+                          alt={active.title}
+                          className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                        />
+                      </motion.div>
+
+                      <div>
+                        <div className="flex justify-between items-start p-4">
+                          <div>
+                            <motion.h3
+                              layoutId={`title-${active.title}-${id}`}
+                              className="font-bold text-neutral-700 dark:text-neutral-200"
+                            >
+                              {active.title}
+                            </motion.h3>
+                            <motion.p
+                              layoutId={`description-${active.description}-${id}`}
+                              className="text-neutral-600 dark:text-neutral-400"
+                            >
+                              {active.description}
+                            </motion.p>
+                          </div>
+
+                          <motion.a
+                            layoutId={`button-${active.title}-${id}`}
+                            href="#"
+                            className="px-4 py-3 text-sm rounded-full font-bold bg-green-500 text-white"
+                          >
+                            Read
+                          </motion.a>
+                        </div>
+                        <div className="pt-4 relative px-4">
+                          <motion.div
+                            layout
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
+                          >
+                            {typeof active.content === "function" ? active.content() : active.content}
+                          </motion.div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
+
     </div>
   );
 }
+
 export default Books;
