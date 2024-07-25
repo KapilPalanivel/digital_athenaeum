@@ -15,7 +15,7 @@ const Navbar = () => {
     return (
         <header className="header">
             <div className="logo-container">
-                <Link to="/" className="logo-name">
+                <Link to="/a" className="logo-name">
                     <h3>Digital Athenaeum</h3>
                 </Link>
             </div>
@@ -23,14 +23,16 @@ const Navbar = () => {
                 <button className="nav-btn" onClick={toggleNavbar}>
                     <FaTimes />
                 </button>
-                <Link to="/">Music</Link>
-                <Link to="/education">Movies</Link>
-                <Link to="#">Books</Link>
-                <Link to="#">Forum</Link>
+                <Link to="/music">Music</Link>
+                <Link to="/movies">Movies</Link>
+                <Link to="/books">Books</Link>
+                <Link to="/forum">Forum</Link>
             </nav>
             <div className="right-section">
                 <input type="text" className="search-bar" placeholder="Search..." />
+                <Link to = "/clientlogin">
                 <button className="auth-button">Sign In</button>
+                </Link>
                 <button className="nav-btn" onClick={toggleNavbar}>
                     <FaBars />
                 </button>
