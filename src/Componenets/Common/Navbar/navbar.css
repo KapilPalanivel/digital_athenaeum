@@ -1,0 +1,124 @@
+:root {
+    --maincolor: #265451;
+    --textcolor: white;
+    --secondarycolor: #b7b9ad;
+    --mainblack: rgb(0, 0, 0);
+}
+
+.logo-name {
+    font-family: 'Jura', sans-serif;
+    color: var(--textcolor);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 2rem;
+    background-color: var(--mainblack);
+    color: var(--textcolor);
+    transition: background-color 1s ease;
+    overflow: hidden;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a {
+    color: var(--textcolor);
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--secondarycolor);
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.auth-button {
+    margin-left: 10px;
+    color: var(--textcolor);
+    background: transparent;
+    border: 1px solid var(--textcolor);
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.auth-button:hover {
+    background-color: var(--secondarycolor);
+    border-color: var(--secondarycolor);
+}
+
+.search-bar {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.nav-btn {
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    color: var(--textcolor);
+    padding: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .nav-btn {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    nav {
+        position: fixed;
+        top: 0; /* Changed to 0 to ensure it's visible */
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        background-color: var(--mainblack);
+        color: var(--textcolor);
+        transition: transform 0.3s ease; /* Adjusted transition duration */
+    }
+
+    nav.nav-open {
+        transform: translateY(0);
+    }
+
+    nav.nav-close {
+        transform: translateY(-100%);
+    }
+}
