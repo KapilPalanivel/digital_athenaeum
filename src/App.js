@@ -6,8 +6,6 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Music/>
-      <ClientLogin/>
     </div>
   );
 }
