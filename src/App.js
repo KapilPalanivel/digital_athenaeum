@@ -6,7 +6,7 @@ import Books from './Componenets/Common/Book/book';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      {/* <Navbar/> */}
       {/* <Music/> */}
       <ClientLogin/>
       {/* <Books/> */}
