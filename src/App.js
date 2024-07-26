@@ -1,14 +1,17 @@
-import './App.css';
-import Music from './Componenets/Common/Book/book';
-import Navbar from './Componenets/Common/Navbar/navbar';
-import ClientLogin from './Componenets/Client/ClientLogin';
-import Books from './Componenets/Common/Book/book';
+import "./App.css";
+import Music from "./Componenets/Common/Book/book";
+import Navbar from "./Componenets/Common/Navbar/navbar";
+import ClientLogin from "./Componenets/Client/ClientLogin";
+import Books from "./Componenets/Common/Book/book";
+import { Login } from "./Componenets/Client/Login";
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Login>
+        <Navbar />
+        <ClientLogin />
+      </Login>
       {/* <Music/> */}
-      <ClientLogin/>
       {/* <Books/> */}
     </div>
   );

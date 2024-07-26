@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
-import './ClientLogin.css';
+import "./ClientLogin.css";
 
 const SignUp = ({ setIsLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -19,14 +19,26 @@ const SignUp = ({ setIsLogin }) => {
           <input type="text" placeholder="Full Name" />
           <input type="email" placeholder="Email" />
           <div className="pass-input-div">
-            <input type={showPassword ? "text" : "password"} placeholder="Password" />
-            {showPassword ? <FaEyeSlash onClick={() => setShowPassword(!showPassword)} /> : <FaEye onClick={() => setShowPassword(!showPassword)} />}
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+            />
+            {showPassword ? (
+              <FaEyeSlash onClick={() => setShowPassword(!showPassword)} />
+            ) : (
+              <FaEye onClick={() => setShowPassword(!showPassword)} />
+            )}
           </div>
-          <button className="button-27" role="submit">Register</button>
+          <button className="button-27" role="submit">
+            Register
+          </button>
         </form>
       </div>
       <p className="login-bottom-p">
-        <span>Already have an account?</span> <a href="/" onClick={handleLoginClick}>Log In</a>
+        <span>Already have an account?</span>{" "}
+        <a href="/" onClick={handleLoginClick}>
+          Log In
+        </a>
       </p>
     </>
   );
