@@ -3,15 +3,16 @@ import { FaHeart, FaSearch } from 'react-icons/fa';
 import { AnimatePresence, motion } from "framer-motion";
 import "./book.css";
 
-const books = [
+const initialBooks = [
   {
     title: "Ethnographie de l'Algérie",
     author: "Houdas, Octave Victor, 1840-1916",
     views: "150K",
-    favorites: "2",
+    favorites: 2,
     comments: "0",
     cover: "https://lematindalgerie.com/wp-content/uploads/2023/04/BENBADIS.jpg",
     description: "A detailed study of the ethnography of Algeria...",
+    favorited: false,
     content: () => (
       <p>
         This book offers a comprehensive analysis of the various ethnic groups
@@ -20,13 +21,14 @@ const books = [
     ),
   },
   {
-    title: "Another Book",
-    author: "Another Author",
+    title: "Lovely Lady",
+    author: "Kalaiarasan Shanmugam Mavan",
     views: "120K",
-    favorites: "3",
+    favorites: 3,
     comments: "1",
-    cover: "/Book2.jpg",
+    cover: "https://www.bookbaby.com/images/og/og-singlebook.jpg",
     description: "An insightful look into...",
+    favorited: false,
     content: () => (
       <p>
         This book delves into the intricacies of its subject matter, providing
@@ -35,13 +37,14 @@ const books = [
     ),
   },
   {
-    title: "Third Book",
+    title: "Italian Without Words",
     author: "Third Author",
     views: "100K",
-    favorites: "4",
+    favorites: 4,
     comments: "2",
-    cover: "/Book3.jpg",
+    cover: "https://th.bing.com/th/id/OIP.KCgHELOQgt2kgzGzjm9zuQHaLf?rs=1&pid=ImgDetMain",
     description: "A fascinating exploration of...",
+    favorited: false,
     content: () => (
       <p>
         This book captures the essence of its theme, offering readers a
@@ -51,7 +54,7 @@ const books = [
   },
 ];
 
-const BookCard = ({ book, onClick }) => (
+const BookCard = ({ book, onClick, onFavoriteClick }) => (
   <div className="book-card" onClick={onClick}>
     <img src={book.cover} alt={book.title} className="book-cover" />
     <h3>{book.title}</h3>
@@ -59,16 +62,24 @@ const BookCard = ({ book, onClick }) => (
     <div className="book-stats">
       <span>{book.views} views</span>
       <span>
-        <FaHeart /> {book.favorites}
+        <FaHeart
+          onClick={(e) => {
+            e.stopPropagation();
+            onFavoriteClick();
+          }}
+          style={{ cursor: "pointer", color: book.favorited ? "red" : "black" }}
+        />{" "}
+        {book.favorites}
       </span>
     </div>
   </div>
 );
 
 function Books() {
+  const [books, setBooks] = useState(initialBooks);
   const [active, setActive] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredBooks, setFilteredBooks] = useState(books);
+  const [filteredBooks, setFilteredBooks] = useState(initialBooks);
   const ref = useRef(null);
   const id = useId();
 
@@ -96,7 +107,14 @@ function Books() {
       book.author.toLowerCase().includes(lowercasedQuery)
     );
     setFilteredBooks(filtered);
-  }, [searchQuery]);
+  }, [searchQuery, books]);
+
+  const handleFavoriteClick = (index) => {
+    const newBooks = [...books];
+    newBooks[index].favorited = !newBooks[index].favorited;
+    newBooks[index].favorites += newBooks[index].favorited ? 1 : -1;
+    setBooks(newBooks);
+  };
 
   return (
     <div className="book">
@@ -123,11 +141,16 @@ function Books() {
       <div className="book-list">
         {filteredBooks.length > 0 ? (
           filteredBooks.map((book, index) => (
-            <BookCard key={index} book={book} onClick={() => setActive(book)} />
+            <BookCard 
+              key={index} 
+              book={book} 
+              onClick={() => setActive(book)} 
+              onFavoriteClick={() => handleFavoriteClick(index)}
+            />
           ))
         ) : (
           <div className="no-results">
-            <p>புக் வேணும்னா என் சுன்னிய புடிச்சு ஊம்பு😟</p>
+            <p>No results found 😟</p>
           </div>
         )}
       </div>
