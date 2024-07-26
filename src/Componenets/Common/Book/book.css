@@ -137,6 +137,13 @@
   margin: 0 auto;
   border-radius: 5px;
 }
+.no-results {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+  margin-top: 20px;
+}
+
 
 .modal-close {
   position: absolute;
