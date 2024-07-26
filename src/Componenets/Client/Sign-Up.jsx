@@ -5,6 +5,11 @@ import './ClientLogin.css';
 const SignUp = ({ setIsLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleLoginClick = (e) => {
+    e.preventDefault();
+    setIsLogin(true);
+  };
+
   return (
     <>
       <div className="login-center">
@@ -17,11 +22,11 @@ const SignUp = ({ setIsLogin }) => {
             <input type={showPassword ? "text" : "password"} placeholder="Password" />
             {showPassword ? <FaEyeSlash onClick={() => setShowPassword(!showPassword)} /> : <FaEye onClick={() => setShowPassword(!showPassword)} />}
           </div>
-          <button class="button-27" role="submit">Register</button>
+          <button className="button-27" role="submit">Register</button>
         </form>
       </div>
       <p className="login-bottom-p">
-        <p>Already have an account?</p> <a href="/" onClick={() => setIsLogin(true)}>Log In</a>
+        <span>Already have an account?</span> <a href="/" onClick={handleLoginClick}>Log In</a>
       </p>
     </>
   );

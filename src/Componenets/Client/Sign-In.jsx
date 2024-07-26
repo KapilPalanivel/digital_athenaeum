@@ -5,6 +5,11 @@ import './ClientLogin.css';
 const Login = ({ setIsLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleSignUpClick = (e) => {
+    e.preventDefault();
+    setIsLogin(false);
+  };
+
   return (
     <>
       <div className="login-center">
@@ -19,11 +24,11 @@ const Login = ({ setIsLogin }) => {
           <div className="login-center-options">
             <a href="#" className="forgot-pass-link">Forgot password?</a>
           </div>
-          <button class="button-27" role="button">Login</button>
+          <button className="button-27" role="button">Login</button>
         </form>
       </div>
       <p className="login-bottom-p">
-        <p> Don't have an account?</p> <a href="/" onClick={() => setIsLogin(false)}>Sign-Up</a>
+        <span> Don't have an account?</span> <a href="/" onClick={handleSignUpClick}>Sign-Up</a>
       </p>    
     </>
   );
