@@ -1,14 +1,22 @@
-import React, { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React, { useContext, useRef, useState } from "react";
+import { FaBars, FaTimes, FaUserCircle, FaCaretDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { isLoggedin } from "../../Client/LoginContext";
+import DropdownMenu from "./dropDown";
 
 const Navbar = () => {
   const navRef = useRef();
+  const [isLoggedIn, setIsLoggedIn] = useContext(isLoggedin);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleNavbar = () => {
     navRef.current.classList.toggle("nav-open");
     navRef.current.classList.toggle("nav-close");
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   return (
@@ -29,9 +37,19 @@ const Navbar = () => {
       </nav>
       <div className="right-section">
         <input type="text" className="search-bar" placeholder="Search..." />
-        <Link to="/clientlogin">
-          <button className="auth-button">Sign In</button>
-        </Link>
+        {isLoggedIn ? (
+          <div className="profile-container">
+            <div className="profile-icon" onClick={toggleDropdown}>
+              <FaUserCircle />
+              <FaCaretDown />
+            </div>
+            <DropdownMenu isOpen={isDropdownOpen} />
+          </div>
+        ) : (
+          <Link to="/clientlogin">
+            <button className="auth-button">Sign In</button>
+          </Link>
+        )}
         <button className="nav-btn" onClick={toggleNavbar}>
           <FaBars />
         </button>

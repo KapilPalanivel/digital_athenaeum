@@ -1,0 +1,28 @@
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--mainblack);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10000; 
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu.hide {
+  display: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: var(--textcolor);
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--secondarycolor);
+}

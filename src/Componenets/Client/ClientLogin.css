@@ -158,6 +158,9 @@ form input[type="text"] {
   box-shadow: none;
   transform: translateY(0);
 }
+.already-logged{
+  text-align: center;
+}
 
 @media (max-width: 900px) {
   .login-left {
