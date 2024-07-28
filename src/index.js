@@ -10,6 +10,7 @@ import ClientLogin from "./Componenets/Client/ClientLogin";
 import Movies from "./Componenets/Common/Movies/Movies";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
+import Footer from "./Componenets/Footer/Footer";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ root.render(
     <LoginContext>
       <RouterProvider router={router} />
     </LoginContext>
+    <Footer/>
   </React.StrictMode>
 );
 
