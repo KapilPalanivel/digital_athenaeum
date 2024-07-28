@@ -1,0 +1,28 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensure it takes full viewport height */
+    background-color: #f8f9fa; /* Light background for better contrast */
+    color: #343a40; /* Dark text color */
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .error-page i {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .return-link {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  .return-link:hover {
+    text-decoration: underline;
+  }
+  
