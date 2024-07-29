@@ -10,6 +10,7 @@ import ClientLogin from "./Componenets/Client/ClientLogin";
 import Movies from "./Componenets/Common/Movies/Movies";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
+import Home from "./Componenets/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "clientlogin",
         element: <ClientLogin />,
       },
+      {
+        path : '/home' , 
+        element : <Home />
+      }
     ],
   },
 ]);
