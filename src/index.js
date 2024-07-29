@@ -5,10 +5,9 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Books from "./Componenets/Common/Book/book";
 import Music from "./Componenets/Common/Music/music";
-import Movies from "./Componenets/Common/Movies/Movies";
+import Movies from "./Componenets/Common/Movies/Movie"
 import ErrorPage from "./ErrorPage/ErrorPage";
 import ClientLogin from "./Componenets/Client/ClientLogin";
-import Movie from "./Componenets/Common/Movies/Movie";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
 import Footer from "./Componenets/Footer/Footer";
@@ -30,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "movies",
-        element: <Movie />,
+        element: <Movies />,
       },
       {
         path: "clientlogin",
