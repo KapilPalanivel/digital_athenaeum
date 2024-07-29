@@ -8,6 +8,7 @@ import Music from "./Componenets/Common/Music/music";
 import Movies from "./Componenets/Common/Movies/Movie"
 import ErrorPage from "./ErrorPage/ErrorPage";
 import ClientLogin from "./Componenets/Client/ClientLogin";
+import Movie from "./Componenets/Common/Movies/Movie";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
 import Footer from "./Componenets/Footer/Footer";
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path : '/' , 
+        element : <Home />
+      } ,
+
+      {
         path: "books",
         element: <Books />,
       },
@@ -29,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "movies",
-        element: <Movies />,
+        element: <Movie />,
       },
       {
         path: "clientlogin",

@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <header className="header">
       <div className="logo-container">
-        <Link to="/a" className="logo-name">
+        <Link to="/" className="logo-name">
           <h3>Digital Athenaeum</h3>
         </Link>
       </div>

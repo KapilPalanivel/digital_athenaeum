@@ -1,6 +1,7 @@
 .fullscreen-bg {
-  background-image: url("https://media.istockphoto.com/id/1290498825/photo/digital-contents-concept-social-networking-service-streaming-video-communication-network-3d.jpg?s=1024x1024&w=is&k=20&c=j4oAFJT9h8IBlXQtpVcqs_qVo4kz-IygcxqVekDL2OM=");
+  background-image: url("https://t3.ftcdn.net/jpg/08/93/27/90/240_F_893279055_qKJ4F8p5zu1VyECXiiDxIcbUEJz9Fxjn.jpg");
     height: 100vh;
+    background-size: cover;
   }
   
   .container-fluid {
