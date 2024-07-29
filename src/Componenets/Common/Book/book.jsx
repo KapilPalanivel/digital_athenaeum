@@ -126,7 +126,7 @@ const initialBooks = [
     views: "500K",
     favorites: 160,
     comments: "70",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnG8sEtl_M2AKoSBYy47zLhX0uDpXMoCrLg&s",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKl8rHPkpdXgswAzv_CIpNUxLSpHYB3FKIA&s",
     description: "A Tamil historical novel that tells the story of the Chola prince Parthiban and his dream of a Chola empire.",
     favorited: false,
     content: () => (
@@ -143,7 +143,7 @@ const initialBooks = [
     views: "600K",
     favorites: 180,
     comments: "75",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAdECIKGvzy0gFUsUQpr0b3P8QQe3XCEkRng&s",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrTG6iGnrwhRUJwTeAMCNDXxlymABi4hdhg&s",
     description: "A Tamil historical novel set in the Pallava dynasty, focusing on the life of Sivagami, a dancer, and her vow.",
     favorited: false,
     content: () => (
@@ -159,7 +159,7 @@ const initialBooks = [
     views: "1.5M",
     favorites: 350,
     comments: "200",
-    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5CV8x2vZQwEh0N5RF3BzvM9_KkFQkQoHhLg&s",
+    cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7kjcU0YPcXhUW3ehAN1oSKbLBGppTWhydMA&s",
     description: "An ancient Tamil text consisting of 1,330 couplets or Kurals, dealing with everyday virtues of an individual.",
     favorited: false,
     content: () => (
@@ -351,12 +351,12 @@ function Books() {
               <div className="modal-details">
                 <div className="modal-title">
                   {active.title}
-                  <span className="modal-author">{active.author}</span>
+                  <span className="modal-author">-{active.author}</span>
                 </div>
                 <div className="modal-description">{active.description}</div>
                 <a href="#read-more" className="read-button">Read More</a>
               </div>
-            </motion.div>
+            </motion.div>\
           </motion.div>
         )}
       </AnimatePresence>
