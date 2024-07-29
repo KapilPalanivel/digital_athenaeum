@@ -2,12 +2,13 @@ import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import './ClientLogin.css';
 import { isLoggedin } from "./LoginContext";
-
+import { Link, Navigate, useNavigate } from "react-router-dom";
 const Login = ({ setIsLogin, setIsForgotPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useContext(isLoggedin);
+  const navigate = useNavigate();
 
   const handleForgotPasswordClick = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ const Login = ({ setIsLogin, setIsForgotPassword }) => {
     // Here you would typically handle the login logic (e.g., API call to authenticate)
     // For now, we'll just set the isLoggedIn state to true
     setIsLoggedIn(true);
+    navigate("/")
     // Optionally, redirect to another page or perform other actions upon successful login
   };
 

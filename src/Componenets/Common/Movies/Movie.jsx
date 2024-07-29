@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useId } from "react";
 import { FaHeart, FaSearch } from 'react-icons/fa';
 import { AnimatePresence, color, motion } from "framer-motion";
-import "./Movies.css";
+// import "./Movies.css";
 
 const initailMovies = [
     {
@@ -219,7 +219,7 @@ const initailMovies = [
       views: "9M",
       favorites: 950,
       comments: "700",
-      cover: "https://example.com/titanic.jpg",
+      cover: "https://i.pinimg.com/736x/60/26/7f/60267f491c2f097add872e58b4107312.jpg",
       description: "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
       favorited: false,
       content: () => (
