@@ -75,7 +75,7 @@ const initailMovies = [
       views: "5M",
       favorites: 850,
       comments: "500",
-      cover: "https://example.com/joker.jpg",
+      cover: "https://rukminim2.flixcart.com/image/850/1000/k0h12fk0/poster/g/3/t/medium-joker-movie-poster-for-room-office-13-inch-x-19-inch-original-imafk9kg4hczamuz.jpeg?q=20&crop=false",
       description: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society.",
       favorited: false,
       content: () => (
@@ -91,7 +91,7 @@ const initailMovies = [
       views: "8M",
       favorites: 950,
       comments: "600",
-      cover: "https://example.com/interstellar.jpg",
+      cover: "https://ih1.redbubble.net/image.4004646450.0270/flat,750x,075,f-pad,750x1000,f8f8f8.webp",
       description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
       favorited: false,
       content: () => (
@@ -107,7 +107,7 @@ const initailMovies = [
       views: "5M",
       favorites: 800,
       comments: "500",
-      cover: "https://example.com/baahubali.jpg",
+      cover: "https://m.media-amazon.com/images/M/MV5BYWVlMjVhZWYtNWViNC00ODFkLTk1MmItYjU1MDY5ZDdhMTU3XkEyXkFqcGdeQXVyODIwMDI1NjM@._V1_.jpg",
       description: "In ancient India, an adventurous and daring man becomes involved in a decades-old feud between two warring peoples.",
       favorited: false,
       content: () => (
@@ -123,7 +123,7 @@ const initailMovies = [
       views: "7M",
       favorites: 900,
       comments: "550",
-      cover: "https://example.com/blackpanther.jpg",
+      cover: "https://c8.alamy.com/comp/RR5MD5/black-panther-2018-directed-by-ryan-coogler-and-starring-chadwick-boseman-michael-b-jordan-and-lupita-nyongo-tchalla-uses-the-powers-of-vibranium-to-prevent-them-being-misused-long-live-the-king!-RR5MD5.jpg",
       description: "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future.",
       favorited: false,
       content: () => (
@@ -139,7 +139,7 @@ const initailMovies = [
       views: "6M",
       favorites: 1000,
       comments: "700",
-      cover: "https://example.com/thegodfather.jpg",
+      cover: "https://i.ebayimg.com/images/g/ioUAAOSw6Btj8lJA/s-l1600.jpg",
       description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
       favorited: false,
       content: () => (
@@ -149,13 +149,13 @@ const initailMovies = [
       ),
     },
     {
-      title: "Dil Se..",
+      title: "Uyire",
       director: "Mani Ratnam",
       genre: "Romance",
       views: "2M",
       favorites: 450,
       comments: "300",
-      cover: "https://example.com/dilse.jpg",
+      cover: "https://i.scdn.co/image/ab67616d00001e02e33d186525f3f1926b2d3e4d",
       description: "The clash between love and ideology is portrayed in this love story between a radio executive and a beautiful revolutionary.",
       favorited: false,
       content: () => (
@@ -171,7 +171,7 @@ const initailMovies = [
       views: "4.5M",
       favorites: 700,
       comments: "450",
-      cover: "https://example.com/sivaji.jpg",
+      cover: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXlpF5wu9AJtN6qMwlNZZjdt4e_peLkEt2ug&s",
       description: "A software engineer comes to India to serve the nation and invest in its welfare. A few corrupt officials and politicians try to stop him while he tries to do good for the poor.",
       favorited: false,
       content: () => (
@@ -187,7 +187,7 @@ const initailMovies = [
       views: "3.5M",
       favorites: 650,
       comments: "400",
-      cover: "https://example.com/12yearsaslave.jpg",
+      cover: "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/ffff6837395561.573ea010ee992.jpg",
       description: "In the antebellum United States, Solomon Northup, a free black man from upstate New York, is abducted and sold into slavery.",
       favorited: false,
       content: () => (
