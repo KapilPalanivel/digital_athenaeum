@@ -5,6 +5,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Books from "./Componenets/Common/Book/book";
 import Music from "./Componenets/Common/Music/music";
+import Movies from "./Componenets/Common/Movies/Movies";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import ClientLogin from "./Componenets/Client/ClientLogin";
 import Layout from "./Componenets/Layout";
@@ -26,13 +27,17 @@ const router = createBrowserRouter([
         element: <Music />,
       },
       {
+        path: "movies",
+        element: <Movies />,
+      },
+      {
         path: "clientlogin",
         element: <ClientLogin />,
       },
       {
-        path : '/home' , 
-        element : <Home />
-      }
+        path: "/home",
+        element: <Home />,
+      },
     ],
   },
 ]);
