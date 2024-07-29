@@ -56,7 +56,7 @@ const Footer = () => {
               <div className="d-flex pt-4">
                 {socialLinks.map((social, index) => (
                   <a key={index} className="btn btn-outline-light btn-social" href="">
-                    {React.createElement(social.icon, { className: 'display-1', style: { transform: `scale(${social.scale})` } })}
+                    {React.createElement(social.icon, { className: 'icon display-1', style: { transform: `scale(${social.scale})` } })}
                   </a>
                 ))}
               </div>
