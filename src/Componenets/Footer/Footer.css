@@ -1,0 +1,149 @@
+/* Footer.css */
+
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px 0;
+  }
+  
+  .footer .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f39c12;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+
+
+  .footer .btn-link {
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+    text-decoration: none; /* Remove text decoration */
+  }
+  
+  .footer .btn-link:hover {
+    color: #f39c12;
+  }
+  
+  .footer .btn-link .me-2 {
+    margin-right: 10px;
+  }
+  
+  .footer .fa {
+    font-size: 1rem;
+  }
+  
+  .footer .btn-social {
+    margin-right: 10px;
+    color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .footer .btn-social:hover {
+    color: #ffffff;
+    background-color: #f39c12;
+  }
+  
+  
+  .footer .form-control {
+    border-radius: 0;
+    background-color: #333333;
+    border-color: #f39c12;
+    color: #ffffff;
+  }
+  
+  .footer .form-control::placeholder {
+    color: #bfbfbf;
+  }
+  
+  .footer .btn-primary {
+    background-color: #f39c12;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add margin to the left of the button */
+  }
+  
+  .footer .btn-primary:hover {
+    background-color: #e67e22;
+  }
+  
+  .footer .footer-menu a {
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer .footer-menu a:hover {
+    color: #f39c12;
+  }
+  
+  .footer .copyright {
+    border-top: 1px solid #444444;
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .footer .copyright a {
+    color: #f39c12;
+    text-decoration: none;
+  }
+  
+  .footer .copyright a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Layout Styles */
+  .footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  .footer .footer-section.company {
+    margin-left: 20px; /* Add margin to the left side of the company section */
+  }
+  
+  .footer .d-flex {
+    display: flex;
+  }
+  
+  .footer .pt-2 {
+    padding-top: 20px;
+  }
+  
+  .footer .bold-email {
+    font-weight: bold; /* Bold email text */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .footer .section-title {
+      font-size: 1.2rem;
+    }
+  
+    .footer .footer-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer .footer-section {
+      flex: 1 1 100%;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+  

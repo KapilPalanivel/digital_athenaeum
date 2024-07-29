@@ -3,7 +3,7 @@ import Navbar from "./Componenets/Common/Navbar/navbar";
 function App() {
   return (
     <div className="App">
-        <Navbar />
+        <Navbar/>
     </div>
   );
 }

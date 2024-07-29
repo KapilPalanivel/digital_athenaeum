@@ -8,8 +8,10 @@ import Music from "./Componenets/Common/Music/music";
 import Movies from "./Componenets/Common/Movies/Movies";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import ClientLogin from "./Componenets/Client/ClientLogin";
+import Movie from "./Componenets/Common/Movies/Movie";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
+import Footer from "./Componenets/Footer/Footer";
 import Home from "./Componenets/Home/Home";
 
 const router = createBrowserRouter([
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: "movies",
-        element: <Movies />,
+        element: <Movie />,
       },
       {
         path: "clientlogin",
@@ -48,6 +50,7 @@ root.render(
     <LoginContext>
       <RouterProvider router={router} />
     </LoginContext>
+    <Footer/>
   </React.StrictMode>
 );
 
