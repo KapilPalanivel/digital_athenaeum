@@ -38,7 +38,7 @@ const initialBooks = [
     ),
   },
   {
-    title: "Pride and Prejudice",
+    title: " and PrejudicePride",
     author: "Jane Austen",
     genre: "Romance",
     views: "600K",
