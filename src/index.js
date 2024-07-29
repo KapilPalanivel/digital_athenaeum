@@ -7,7 +7,6 @@ import Books from "./Componenets/Common/Book/book";
 import Music from "./Componenets/Common/Music/music";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import ClientLogin from "./Componenets/Client/ClientLogin";
-import Movies from "./Componenets/Common/Movies/Movies";
 import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
 import Home from "./Componenets/Home/Home";
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
       {
         path: "music",
         element: <Music />,
-      },
-      {
-        path: "movies",
-        element: <Movies />,
       },
       {
         path: "clientlogin",
