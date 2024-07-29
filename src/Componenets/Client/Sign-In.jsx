@@ -33,14 +33,16 @@ const Login = ({ setIsLogin, setIsForgotPassword }) => {
           <input
             type="email"
             placeholder="Email"
+            style={{fontSize:"15px"}}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
+            />
           <div className="pass-input-div">
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
+              style={{fontSize:"15px"}}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

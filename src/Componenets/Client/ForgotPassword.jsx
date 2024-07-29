@@ -8,7 +8,11 @@ const ForgotPassword = ({ setIsLogin, setIsForgotPassword }) => {
         <h2 className="welcome">Reset Password</h2>
         <p>Please enter your email to reset your password</p>
         <form>
-          <input type="email" placeholder="Email" />
+          <input
+            style={{ fontSize: "15px" }}
+            type="email"
+            placeholder="Email"
+          />
           <button className="button-27" role="button">
             Reset Password
           </button>

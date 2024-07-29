@@ -16,10 +16,19 @@ const SignUp = ({ setIsLogin }) => {
         <h2 className="welcome">Create an Account</h2>
         <p>Please enter your details</p>
         <form>
-          <input type="text" placeholder="Full Name" />
-          <input type="email" placeholder="Email" />
+          <input
+            style={{ fontSize: "15px" }}
+            type="text"
+            placeholder="Full Name"
+          />
+          <input
+            style={{ fontSize: "15px" }}
+            type="email"
+            placeholder="Email"
+          />
           <div className="pass-input-div">
             <input
+              style={{ fontSize: "15px" }}
               type={showPassword ? "text" : "password"}
               placeholder="Password"
             />
