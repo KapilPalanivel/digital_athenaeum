@@ -1,9 +1,9 @@
 /* book.css */
 
 /* Layout for the main container */
-.main-container {
+/* .main-container {
   display: flex;
-}
+} */
 
 /* Sidebar filter styles */
 .filter-sidebar {
@@ -37,8 +37,8 @@
 
 /* Main content styles */
 .main-content {
-  flex: 1;
-  padding: 20px;
+  flex: 1; 
+   padding: 20px;
 }
 
 /* Book header and description styles */

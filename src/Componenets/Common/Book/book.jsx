@@ -38,7 +38,7 @@ const initialBooks = [
     ),
   },
   {
-    title: "Pride and Prejudice",
+    title: " and PrejudicePride",
     author: "Jane Austen",
     genre: "Romance",
     views: "600K",
@@ -259,7 +259,7 @@ function Books() {
   };
 
   return (
-    <div className="main-container">
+    <div className="">
       {/* Sidebar */}
       <div className="filter-sidebar">
         <div className="filter-section">

@@ -33,10 +33,6 @@ const GeneralSettings = () => {
             <a href="javascript:void(0)">Resend confirmation</a>
           </div>
         </div>
-        <div className="form-group">
-          <label className="form-label">Company</label>
-          <input type="text" className="form-control" value="Company Ltd." />
-        </div>
       </div>
     </div>
   );
