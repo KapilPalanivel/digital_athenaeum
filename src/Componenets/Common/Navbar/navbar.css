@@ -28,7 +28,7 @@
   color: var(--textcolor);
   transition: background-color 1s ease;
   overflow: hidden;
-  z-index: 1000; /* Ensure header has a lower z-index than the dropdown */
+  z-index: 1000;
 }
 
 .logo-container {
@@ -36,6 +36,7 @@
   display: flex;
   justify-content: flex-start;
 }
+
 nav {
   flex: 2;
   display: flex;
@@ -56,14 +57,15 @@ nav a:hover {
 .right-section {
   flex: 1;
   display: flex;
+  align-content: center;
   align-items: center;
   justify-content: flex-end;
-  z-index: 1000; /* Ensure right section has a lower z-index than the dropdown */
 }
 
 .auth-button {
   margin-left: 10px;
   color: var(--textcolor);
+  width: 100%;
   background: transparent;
   border: 1px solid var(--textcolor);
   border-radius: 3px;
@@ -92,18 +94,18 @@ nav a:hover {
   background: transparent;
   color: var(--textcolor);
   padding: 5px;
-  z-index: 1000; /* Ensure nav button has a lower z-index than the dropdown */
 }
 
 .profile-container {
   position: relative;
-  z-index: 1500; /* Ensure profile container has a lower z-index than the dropdown */
 }
 
 .profile-icon {
-  font-size: 1.5em;
+  font-size: 1.8em;
   cursor: pointer;
+  color: rgb(241, 241, 241);
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .dropdown-menu {
@@ -115,7 +117,7 @@ nav a:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   overflow: hidden;
-  z-index: 2000; /* Increase z-index to ensure it appears above other elements */
+  z-index: 2000; /* Ensure dropdown menu is above other elements */
 }
 
 .dropdown-menu a {
@@ -136,9 +138,7 @@ nav a:hover {
     visibility: visible;
     opacity: 1;
   }
-  .logo-container img{
-    opacity: 0;
-  }
+
   nav {
     position: fixed;
     top: 0; 

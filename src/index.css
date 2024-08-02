@@ -12,3 +12,6 @@ code {
     monospace;
 }
 
+.below-comp{
+  /* z-index: 100; */
+}

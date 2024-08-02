@@ -1,49 +1,36 @@
-import React, { useState } from 'react';
+// FilterSidebar.jsx
+import React from 'react';
 
-const FilterSidebar = ({ onFilterChange }) => {
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('');
-  const [releaseDate, setReleaseDate] = useState('');
-
-  const handleFilterChange = () => {
-    onFilterChange({ author, genre, releaseDate });
-  };
-
-  return (
-    <div className="filter-sidebar">
-      <h2>Filters</h2>
-      <div className="filter-group">
-        <label htmlFor="author">Author:</label>
-        <input 
-          type="text" 
-          id="author" 
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          onBlur={handleFilterChange}
-        />
-      </div>
-      <div className="filter-group">
-        <label htmlFor="genre">Genre:</label>
-        <input 
-          type="text" 
-          id="genre" 
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-          onBlur={handleFilterChange}
-        />
-      </div>
-      <div className="filter-group">
-        <label htmlFor="releaseDate">Release Date:</label>
-        <input 
-          type="date" 
-          id="releaseDate" 
-          value={releaseDate}
-          onChange={(e) => setReleaseDate(e.target.value)}
-          onBlur={handleFilterChange}
-        />
-      </div>
+const FilterSidebar = ({ selectedAuthor, selectedGenre, authors, genres, onAuthorChange, onGenreChange }) => (
+  <div className="filter-sidebar">
+    <div className="filter-section">
+      <label htmlFor="book_author-filter">Author</label>
+      <select
+        id="book_author-filter"
+        value={selectedAuthor}
+        onChange={e => onAuthorChange(e.target.value)}
+      >
+        <option value="">All Authors</option>
+        {authors.map((author, index) => (
+          <option key={index} value={author}>{author}</option>
+        ))}
+      </select>
     </div>
-  );
-};
+
+    <div className="filter-section">
+      <label htmlFor="book_genre-filter">Genre</label>
+      <select
+        id="book_genre-filter"
+        value={selectedGenre}
+        onChange={e => onGenreChange(e.target.value)}
+      >
+        <option value="">All Genres</option>
+        {genres.map((genre, index) => (
+          <option key={index} value={genre}>{genre}</option>
+        ))}
+      </select>
+    </div>
+  </div>
+);
 
 export default FilterSidebar;

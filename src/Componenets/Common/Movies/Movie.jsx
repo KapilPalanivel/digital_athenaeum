@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useId } from "react";
 import { FaHeart, FaSearch } from 'react-icons/fa';
-import { AnimatePresence, color, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import "./Movies.css";
 
 const initailMovies = [

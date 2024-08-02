@@ -1,25 +1,29 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 import {
   FaRegArrowAltCircleRight,
   FaFacebookF,
   FaLinkedin,
   FaTwitter,
   FaYoutube,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
 const Footer = () => {
   const companyLinks = [
-    { label: 'About Us', icon: FaRegArrowAltCircleRight, Link: 'about' },
-    { label: 'Contact Us', icon: FaRegArrowAltCircleRight, Link: 'contact' },
-    { label: 'Privacy Policy', icon: FaRegArrowAltCircleRight, Link: '' },
-    { label: 'Terms & Condition', icon: FaRegArrowAltCircleRight, Link: '' },
+    { label: "About Us", icon: FaRegArrowAltCircleRight, Link: "about" },
+    { label: "Contact Us", icon: FaRegArrowAltCircleRight, Link: "contact" },
+    { label: "Privacy Policy", icon: FaRegArrowAltCircleRight, Link: "" },
+    { label: "Terms & Condition", icon: FaRegArrowAltCircleRight, Link: "" },
   ];
 
   const contactInfo = [
-    { icon: 'fa-map-marker-alt', text: 'CHANDRA GARDEN' },
-    { icon: 'fa-phone-alt', text: '6380279113' },
-    { icon: 'fa-envelope', text: 'Discountkumar-it072@vaadagai.kettle', isEmail: true },  
+    { icon: "fa-map-marker-alt", text: "CHANDRA GARDEN" },
+    { icon: "fa-phone-alt", text: "6380279113" },
+    {
+      icon: "fa-envelope",
+      text: "Discountkumar-it072@vaadagai.kettle",
+      isEmail: true,
+    },
   ];
 
   const socialLinks = [
@@ -29,50 +33,90 @@ const Footer = () => {
     { icon: FaLinkedin, scale: 1.3 },
   ];
 
-  const founders = ['KAPIL PA', 'KARTHIKEYAN B', 'KARNAN R'];
+  const founders = ["KAPIL PA", "KARTHIKEYAN B", "KARNAN R"];
 
   return (
     <React.Fragment>
-      <div className="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+      <div
+        className="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+        data-wow-delay="0.1s"
+      >
         <div className="container py-5">
           <div className="footer-content">
             <div className="footer-section company">
-              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                Company
+              </h4>
               {companyLinks.map((link, index) => (
-                <a key={index} className="btn btn-link d-flex align-items-center" href={link.Link}>
-                  {React.createElement(link.icon, { className: 'me-2' })}
+                <a
+                  key={index}
+                  className="btn btn-link d-flex align-items-center"
+                  href={link.Link}
+                >
+                  {React.createElement(link.icon, { className: "me-2" })}
                   {link.label}
                 </a>
               ))}
             </div>
             <div className="footer-section">
-              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                Contact
+              </h4>
               {contactInfo.map((info, index) => (
-                <p key={index} className={`mb-2 ${info.isEmail ? 'bold-email' : ''}`}>
+                <p
+                  key={index}
+                  className={`mb-2 ${info.isEmail ? "bold-email" : ""}`}
+                >
                   <i className={`fa ${info.icon} me-3`} />
                   {info.text}
                 </p>
               ))}
               <div className="d-flex pt-4">
                 {socialLinks.map((social, index) => (
-                  <a key={index} className="btn btn-outline-light btn-social" href="">
-                    {React.createElement(social.icon, { className: 'icon display-1', style: { transform: `scale(${social.scale})` } })}
+                  <a
+                    key={index}
+                    className="btn btn-outline-light btn-social"
+                    href="https://twitter.com"
+                    aria-label="Twitter"
+                  >
+                    {React.createElement(social.icon, {
+                      className: "icon display-1",
+                      style: { transform: `scale(${social.scale})` },
+                    })}
                   </a>
                 ))}
               </div>
             </div>
             <div className="footer-section">
-              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">Founders</h4>
+              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                Founders
+              </h4>
               {founders.map((founder, index) => (
-                <p key={index} className="mb-2">{founder}</p>
+                <p key={index} className="mb-2">
+                  {founder}
+                </p>
               ))}
             </div>
             <div className="footer-section">
-              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
+              <h4 className="section-title ff-secondary text-start text-primary fw-normal mb-4">
+                Newsletter
+              </h4>
               <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-              <div className="position-relative mx-auto" style={{ maxWidth: 400 }}>
-                <input className="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email" />
-                <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+              <div
+                className="position-relative mx-auto"
+                style={{ maxWidth: 400 }}
+              >
+                <input
+                  className="form-control border-primary w-100 py-3 ps-4 pe-5"
+                  type="text"
+                  placeholder="Your email"
+                />
+                <button
+                  type="button"
+                  className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2"
+                >
+                  SignUp
+                </button>
               </div>
             </div>
           </div>
@@ -80,7 +124,11 @@ const Footer = () => {
         <div className="container">
           <div className="copyright">
             <div className="text-center">
-              © <a className="border-bottom" href="#">Digital Athenaeum</a>, All Right Reserved.
+              ©{" "}
+              <a className="border-bottom" href="#">
+                Digital Athenaeum
+              </a>
+              , All Right Reserved.
               <br />
               <br />
               <div className="footer-menu">

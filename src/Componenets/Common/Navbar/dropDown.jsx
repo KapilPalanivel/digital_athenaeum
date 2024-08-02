@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './dropDown.css';
 
@@ -10,6 +10,10 @@ const DropdownMenu = ({ isOpen }) => {
       <Link to="/logout">Logout</Link>
     </div>
   );
+};
+
+DropdownMenu.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default DropdownMenu;
