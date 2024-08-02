@@ -1,0 +1,59 @@
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .switcher {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .switcher-input {
+    display: none;
+  }
+  
+  .switcher-indicator {
+    position: relative;
+    width: 2.75rem;
+    height: 1.5rem;
+    background: #ddd;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .switcher-yes,
+  .switcher-no {
+    display: none;
+  }
+  
+  .switcher-label {
+    flex-grow: 1;
+    margin-left: 0.75rem;
+    color: #495057;
+  }
+  
+  .switcher-input:checked ~ .switcher-indicator {
+    background: #28a745;
+  }
+  
+  .switcher-input:checked ~ .switcher-indicator:before {
+    transform: translateX(1.25rem);
+  }
+  
+  .switcher-indicator:before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  

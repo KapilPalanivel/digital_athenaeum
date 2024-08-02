@@ -1,32 +1,38 @@
 .profile-page {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    width: 200px;
-    background-color: #2c3e50;
-    color: white;
-    padding-top: 20px;
-  }
-  
-  .sidebar ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .sidebar ul li {
-    padding: 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .sidebar ul li:hover {
-    background-color: #34495e;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px; /* Adjust width as needed */
+  background-color: #000000;
+  color: white;
+  padding-top: 20px;
+  position: fixed; /* Fix to the left side */
+  height: 100vh; /* Full height */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Ensure no extra margin */
+}
+
+.sidebar ul li {
+  padding: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar ul li:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.main-content {
+  margin-left: 200px; /* Match the sidebar width */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}

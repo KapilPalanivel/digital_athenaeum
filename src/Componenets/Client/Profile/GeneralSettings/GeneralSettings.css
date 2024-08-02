@@ -1,0 +1,21 @@
+.ui-w-80 {
+    width: 80px !important;
+    height: auto;
+  }
+  
+  .btn-outline-primary {
+    border-color: #26B4FF;
+    background: transparent;
+    color: #26B4FF;
+  }
+  
+  .text-light {
+    color: #babbbc !important;
+  }
+  
+  .btn-default {
+    border-color: rgba(24, 28, 33, 0.1);
+    background: rgba(0, 0, 0, 0);
+    color: #4E5155;
+  }
+  

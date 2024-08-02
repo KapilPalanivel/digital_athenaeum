@@ -1,35 +1,70 @@
 import React, { useState } from "react";
 import "./ProfilePage.css";
-import Profile from "./Profile";
+import GeneralSettings from "./GeneralSettings/GeneralSettings";
+import ChangePassword from "./ChangePassword/ChangePassword";
+import InfoSettings from "./InfoSettings/InfoSettings";
+import SocialLinks from "./SocialLinks/SocialLinks";
+import Connections from "./Connections/Connections";
+import Notifications from "./Notifications/Notifications";
 import Uploads from "./Uploads";
-import Favorites from "./Favorites";
+import Favorites from "./Favorites/Favorites";
 
 const ProfilePage = () => {
-  const [activeComponent, setActiveComponent] = useState("profile");
+  const [activeComponent, setActiveComponent] = useState("general");
 
   const renderComponent = () => {
     switch (activeComponent) {
-      case "profile":
-        return <Profile />;
+      case "general":
+        return <GeneralSettings />;
+      case "changePassword":
+        return <ChangePassword />;
+      case "info":
+        return <InfoSettings />;
+      case "socialLinks":
+        return <SocialLinks />;
+      case "connections":
+        return <Connections />;
+      case "notifications":
+        return <Notifications />;
       case "uploads":
         return <Uploads />;
       case "favorites":
         return <Favorites />;
       default:
-        return <Profile />;
+        return <GeneralSettings />;
     }
   };
 
   return (
     <div className="profile-page">
-      <div className="sidebar">
+      <nav className="sidebar">
         <ul>
-          <li onClick={() => setActiveComponent("profile")}>Profile</li>
-          <li onClick={() => setActiveComponent("uploads")}>Uploads</li>
-          <li onClick={() => setActiveComponent("favorites")}>Favorites</li>
-          <li onClick={() => setActiveComponent("archive")}>Internet Archive</li>
+          <li onClick={() => setActiveComponent("general")}>
+            General
+          </li>
+          <li onClick={() => setActiveComponent("changePassword")}>
+            Change Password
+          </li>
+          <li onClick={() => setActiveComponent("info")}>
+            Info
+          </li>
+          <li onClick={() => setActiveComponent("socialLinks")}>
+            Social Links
+          </li>
+          <li onClick={() => setActiveComponent("connections")}>
+            Connections
+          </li>
+          <li onClick={() => setActiveComponent("notifications")}>
+            Notifications
+          </li>
+          <li onClick={() => setActiveComponent("uploads")}>
+            Uploads
+          </li>
+          <li onClick={() => setActiveComponent("favorites")}>
+            Favorites
+          </li>
         </ul>
-      </div>
+      </nav>
       <div className="main-content">
         {renderComponent()}
       </div>

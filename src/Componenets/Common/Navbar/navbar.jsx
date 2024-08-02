@@ -38,8 +38,8 @@ const Navbar = () => {
       <div className="right-section">
         <input type="text" className="search-bar" placeholder="Search..." />
         {isLoggedIn ? (
-          <div className="profile-container">
-            <Link to="/profile" className="profile-icon">
+          <div>
+            <Link to="/profile" className="profile-ico">
               <FaUserCircle />
             </Link>
           </div>

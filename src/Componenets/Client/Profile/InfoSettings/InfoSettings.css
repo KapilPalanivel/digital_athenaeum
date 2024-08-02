@@ -1,0 +1,35 @@
+.form-label {
+    font-weight: 600;
+    color: #495057;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  .custom-select {
+    display: inline-block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    vertical-align: middle;
+    background: #fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4gPHBhdGggZmlsbD0iI0RERERERCIgZD0iTTEyLjA2NSAzLjkzNGExIDEgMCAwIDEtMS40MTUgMEw4IDYuNTU5IDQuNzY0IDMuOTM0YTEgMSAwIDAgMC0xLjQxNCAxLjQxNGw0IDQgMS4wNyAxLjA2NiAxLjA2OC0xLjA2NiA0LTQgMS40MTQtMS40MTR6Ij48L3BhdGg+PC9zdmc+) no-repeat right .75rem center/8px 10px;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    appearance: none;
+  }
+  

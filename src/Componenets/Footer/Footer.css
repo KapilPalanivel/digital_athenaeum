@@ -3,7 +3,8 @@
 .footer {
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 50px 0;
+  /* padding: 50px 0; */
+  margin: 0;
 }
 
 .footer .section-title {
@@ -51,7 +52,7 @@
 }
 
 .footer .btn-social .icon {
-  font-size: 1.2rem; /* Adjust icon size */
+  font-size: 1.5rem; /* Adjusted size for better visibility */
 }
 
 .footer .form-control {
@@ -70,10 +71,6 @@
   border: none;
   transition: background-color 0.3s ease;
   margin-left: 10px; /* Add margin to the left of the button */
-}
-
-.footer .btn-social .icon {
-  font-size: 1.5rem; /* Adjusted size for better visibility */
 }
 
 .footer .btn-primary:hover {
@@ -151,4 +148,14 @@
     max-width: 100%;
     text-align: center;
   }
+}
+
+/* Ensure no extra margin or padding */
+.container-fluid.bg-dark.text-light {
+  margin-bottom: 0; /* Remove bottom margin */
+  padding-top: 0; /* Remove top padding */
+}
+
+.container {
+  margin-bottom: 0; /* Remove bottom margin */
 }

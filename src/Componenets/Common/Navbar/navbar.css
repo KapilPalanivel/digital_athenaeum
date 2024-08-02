@@ -96,41 +96,18 @@ nav a:hover {
   padding: 5px;
 }
 
-.profile-container {
-  position: relative;
-}
 
-.profile-icon {
-  font-size: 1.8em;
-  cursor: pointer;
+
+.profile-ico {
+  font-size: 1.8em; 
   color: rgb(241, 241, 241);
   margin-left: 10px;
   margin-right: 10px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
-.dropdown-menu {
-  position: absolute;
-  top: 2.5em;
-  right: 0;
-  background-color: var(--mainblack);
-  color: var(--textcolor);
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  overflow: hidden;
-  z-index: 2000; /* Ensure dropdown menu is above other elements */
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: var(--textcolor);
-  cursor: pointer;
-}
-
-.dropdown-menu a:hover {
-  background-color: var(--secondarycolor);
-  color: var(--mainblack);
+.profile-icon:hover {
+  color: var(--secondarycolor); /* Change color on hover for better visibility */
 }
 
 @media only screen and (max-width: 1024px) {
