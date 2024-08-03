@@ -1,42 +1,40 @@
 .fullscreen-bg {
-  background-image: url("http://digitalathenaeum.com/images/cover.jpg");
-    height: 100vh;
-    background-size: cover;
-  }
-  
-  .container-fluid {
-    padding-top: 3rem;
-    background-color: #343a40; /* Dark background */
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
-  .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 1rem 0; /* Margin to give space between cards */
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card img {
-    width: 100%;
-    height: 240px;
-  }
-  
-  .card-title, .card-text {
-    margin: 0.5rem 0;
-  }
-  
-  .btn-outline-warning {
-    margin-top: 1rem;
-  }
-  
-  .border-warning-subtle {
-    border-color: #ffc107 !important; /* Custom border color */
-  }
-  
+  height: 100vh;
+  background-size: cover;
+}
+
+.container-fluid {
+  padding-top: 3rem;
+  background-color: #343a40; /* Dark background */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem 0; /* Margin to give space between cards */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+}
+
+.card-title, .card-text {
+  margin: 0.5rem 0;
+}
+
+.btn-outline-warning {
+  margin-top: 1rem;
+}
+
+.border-warning-subtle {
+  border-color: #ffc107 !important; /* Custom border color */
+}
