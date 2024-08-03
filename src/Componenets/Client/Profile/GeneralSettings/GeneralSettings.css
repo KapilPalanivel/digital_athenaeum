@@ -1,21 +1,57 @@
 .ui-w-80 {
-    width: 80px !important;
-    height: auto;
-  }
-  
-  .btn-outline-primary {
-    border-color: #26B4FF;
-    background: transparent;
-    color: #26B4FF;
-  }
-  
-  .text-light {
-    color: #babbbc !important;
-  }
-  
-  .btn-default {
-    border-color: rgba(24, 28, 33, 0.1);
-    background: rgba(0, 0, 0, 0);
-    color: #4E5155;
-  }
-  
+  width: 80px !important;
+  height: auto;
+}
+
+.btn-outline-primary {
+  border-color: #26B4FF;
+  background: transparent;
+  color: #26B4FF;
+}
+
+.text-light {
+  color: #babbbc !important;
+}
+
+.btn-default {
+  border-color: rgba(24, 28, 33, 0.1);
+  background: rgba(0, 0, 0, 0);
+  color: #4E5155;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.logout-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.logout-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.logout-popup-actions .btn {
+  margin-left: 10px;
+}

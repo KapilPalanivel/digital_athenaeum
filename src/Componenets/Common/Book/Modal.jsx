@@ -1,24 +1,23 @@
-// Modal.jsx
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import './book.css';
 
 const Modal = ({ active, setActive }) => {
   const ref = useRef(null);
 
-  function onKeyDown(event) {
-    if (event.key === "Escape") {
-      setActive(null);
+  useEffect(() => {
+    function onKeyDown(event) {
+      if (event.key === "Escape") {
+        setActive(null);
+      }
     }
-  }
 
-  function handleClickOutside(event) {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setActive(null);
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setActive(null);
+      }
     }
-  }
 
-  React.useEffect(() => {
     if (active) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", onKeyDown);
@@ -52,13 +51,13 @@ const Modal = ({ active, setActive }) => {
             exit={{ scale: 0.8, opacity: 0 }}
           >
             <button className="modal-close" onClick={() => setActive(null)}>&times;</button>
-            <img src={active.cover} alt={active.book_title} className="modal-image" />
+            <img src={active.cover} alt={active.title} className="modal-image" />
             <div className="modal-details">
-              <div className="modal-book_title">
-                {active.book_title}
-                <span className="modal-book_author">-{active.book_author}</span>
+              <div className="modal-title">
+                {active.title}
+                <span className="modal-author">-{active.author}</span>
               </div>
-              <div className="modal-book_description">{active.book_description}</div>
+              <div className="modal-description">{active.description}</div>
               <a href="#read-more" className="read-button">Read More</a>
             </div>
           </motion.div>

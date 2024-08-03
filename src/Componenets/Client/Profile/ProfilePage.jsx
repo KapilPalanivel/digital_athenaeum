@@ -45,14 +45,8 @@ const ProfilePage = () => {
           <li onClick={() => setActiveComponent("changePassword")}>
             Change Password
           </li>
-          <li onClick={() => setActiveComponent("info")}>
-            Info
-          </li>
           <li onClick={() => setActiveComponent("socialLinks")}>
             Social Links
-          </li>
-          <li onClick={() => setActiveComponent("connections")}>
-            Connections
           </li>
           <li onClick={() => setActiveComponent("notifications")}>
             Notifications

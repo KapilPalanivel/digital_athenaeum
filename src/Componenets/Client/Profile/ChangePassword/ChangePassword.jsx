@@ -1,25 +1,70 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './ChangePassword.css';
+import { ForgotPasswordComponent } from './ForgotPasswordComponent';
+const ResetPasswordPage = () => {
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
 
-const ChangePassword = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Password reset submitted');
+  };
+
+  const toggleForgotPassword = () => {
+    setShowForgotPassword(!showForgotPassword);
+  };
+
   return (
-    <div className="tab-pane fade" id="account-change-password">
-      <div className="card-body pb-2">
-        <div className="form-group">
-          <label className="form-label">Current password</label>
-          <input type="password" className="form-control" />
-        </div>
-        <div className="form-group">
-          <label className="form-label">New password</label>
-          <input type="password" className="form-control" />
-        </div>
-        <div className="form-group">
-          <label className="form-label">Repeat new password</label>
-          <input type="password" className="form-control" />
-        </div>
+    <div className="container">
+      <div className="form-wrapper">
+        {!showForgotPassword ? (
+          <>
+            <h2 className="title">Reset Password</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="input-group">
+                <label htmlFor="oldPassword">Old Password</label>
+                <input
+                  type="password"
+                  id="oldPassword"
+                  value={oldPassword}
+                  onChange={(e) => setOldPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="newPassword">New Password</label>
+                <input
+                  type="password"
+                  id="newPassword"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="input-group">
+                <label htmlFor="confirmPassword">Confirm New Password</label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className="reset-button">Reset Password</button>
+            </form>
+            <p className="forgot-password-link">
+              <a href="#" onClick={toggleForgotPassword}>Forgot Password?</a>
+            </p>
+          </>
+        ) : (
+          <ForgotPasswordComponent onBack={toggleForgotPassword} />
+        )}
       </div>
     </div>
   );
 };
 
-export default ChangePassword;
+export default ResetPasswordPage;

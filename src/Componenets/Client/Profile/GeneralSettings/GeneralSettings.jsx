@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './GeneralSettings.css';
+import { isLoggedin } from "../../LoginContext";
+import { Link } from "react-router-dom";
 
 const GeneralSettings = () => {
+  const [isLoggedIn, setIsLoggedIn] = useContext(isLoggedin);
+  const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    setShowLogoutPopup(false);
+  };
+
   return (
     <div className="tab-pane fade active show" id="account-general">
       <div className="card-body media align-items-center">
@@ -33,7 +44,22 @@ const GeneralSettings = () => {
             <a href="javascript:void(0)">Resend confirmation</a>
           </div>
         </div>
+        <button className="btn btn-danger logout-button" onClick={() => setShowLogoutPopup(true)}>
+          Logout
+        </button>
       </div>
+
+      {showLogoutPopup && (
+        <div className="logout-popup">
+          <div className="logout-popup-content">
+            <p>Are you sure?</p>
+            <div className="logout-popup-actions">
+              <Link to="/" className="btn btn-danger" onClick={handleLogout}>Logout</Link>
+              <button className="btn btn-secondary" onClick={() => setShowLogoutPopup(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

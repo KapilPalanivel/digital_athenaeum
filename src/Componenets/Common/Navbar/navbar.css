@@ -65,7 +65,7 @@ nav a:hover {
 .auth-button {
   margin-left: 10px;
   color: var(--textcolor);
-  width: 100%;
+  width: 80px;
   background: transparent;
   border: 1px solid var(--textcolor);
   border-radius: 3px;
