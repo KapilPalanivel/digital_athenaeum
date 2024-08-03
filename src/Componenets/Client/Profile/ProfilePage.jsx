@@ -6,7 +6,7 @@ import InfoSettings from "./InfoSettings/InfoSettings";
 import SocialLinks from "./SocialLinks/SocialLinks";
 import Connections from "./Connections/Connections";
 import Notifications from "./Notifications/Notifications";
-import Uploads from "./Uploads";
+import Uploads from "./Uploads/Uploads";
 import Favorites from "./Favorites/Favorites";
 
 const ProfilePage = () => {

@@ -1,10 +1,10 @@
+// Books.jsx
 import React, { useEffect, useState, useRef, useId } from "react";
 import { FaHeart, FaSearch } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import "./book.css";
 
 const initialBooks = [
-  // Public Domain Books in English
   {
     title: "Hamlet",
     author: "William Shakespeare",
@@ -220,9 +220,11 @@ const initialBooks = [
 
 const BookCard = ({ book, onClick, onFavoriteClick }) => (
   <div className="book-card" onClick={onClick}>
-    <img src={book.cover} alt={book.title} className="book-cover" />
-    <h3>{book.title}</h3>
-    <p className="book-author">{book.author}</p>
+    <div className="book-card-content">
+      <img src={book.cover} alt={book.title} className="book-cover" />
+      <h3 className="book-title">{book.title}</h3>
+      <p className="book-author">{book.author}</p>
+    </div>
     <div className="book-stats">
       <span>{book.views} views</span>
       <span>
@@ -325,9 +327,20 @@ function Books() {
     setBooks(newBooks);
   };
 
+  const handleAuthorChange = (e) => {
+    setSelectedAuthor(e.target.value);
+  };
+
+  const handleGenreChange = (e) => {
+    setSelectedGenre(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
   return (
     <div className="books-container">
-      {/* Header Section */}
       <div className="books-header">
         <div id="book_header">
           <div id="book_icon">{/* Add your book icon here */}</div>
@@ -345,7 +358,6 @@ function Books() {
           </div>
         </div>
 
-        {/* Search Container */}
         <div className="search-container">
           <input
             type="text"
@@ -358,88 +370,53 @@ function Books() {
           </button>
         </div>
       </div>
-
-      {/* Main Content Section */}
       <div className="main-content-container">
         <div className="filter-sidebar">
-          <div className="filter-section">
-            <label htmlFor="author-filter">Author</label>
+          <h3>Filters</h3>
+          <div className="filter-group">
+            <label htmlFor="author-select">Author:</label>
             <select
-              id="author-filter"
+              id="author-select"
               value={selectedAuthor}
-              onChange={(e) => setSelectedAuthor(e.target.value)}
+              onChange={handleAuthorChange}
             >
               <option value="">All Authors</option>
-              {authors.map((author, index) => (
-                <option key={index} value={author}>
+              {authors.map((author) => (
+                <option key={author} value={author}>
                   {author}
                 </option>
               ))}
             </select>
           </div>
-
-          <div className="filter-section">
-            <label htmlFor="genre-filter">Genre</label>
+          <div className="filter-group">
+            <label htmlFor="genre-select">Genre:</label>
             <select
-              id="genre-filter"
+              id="genre-select"
               value={selectedGenre}
-              onChange={(e) => setSelectedGenre(e.target.value)}
+              onChange={handleGenreChange}
             >
               <option value="">All Genres</option>
-              {genres.map((genre, index) => (
-                <option key={index} value={genre}>
+              {genres.map((genre) => (
+                <option key={genre} value={genre}>
                   {genre}
                 </option>
               ))}
             </select>
           </div>
-
-          <div className="filter-section">
-            <h2>Sort By</h2>
-            <label>
-              <input
-                type="radio"
-                name="sort"
-                value="name"
-                checked={sortOption === "name"}
-                onChange={(e) => setSortOption(e.target.value)}
-              />
-              Name
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="sort"
-                value="artist"
-                checked={sortOption === "artist"}
-                onChange={(e) => setSortOption(e.target.value)}
-              />
-              Artist
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="sort"
-                value="favorites"
-                checked={sortOption === "favorites"}
-                onChange={(e) => setSortOption(e.target.value)}
-              />
-              Favorites
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="sort"
-                value="comments"
-                checked={sortOption === "comments"}
-                onChange={(e) => setSortOption(e.target.value)}
-              />
-              Comments
-            </label>
+          <div className="filter-group">
+            <label htmlFor="sort-select">Sort by:</label>
+            <select
+              id="sort-select"
+              value={sortOption}
+              onChange={handleSortChange}
+            >
+              <option value="name">Name</option>
+              <option value="artist">Author</option>
+              <option value="favorites">Likes</option>
+              <option value="comments">Comments</option>
+            </select>
           </div>
         </div>
-
-        {/* Book List */}
         <div className="book-list">
           {filteredBooks.length > 0 ? (
             filteredBooks.map((book, index) => (
@@ -456,7 +433,6 @@ function Books() {
         </div>
       </div>
 
-      {/* Modal */}
       <AnimatePresence>
         {active && (
           <motion.div

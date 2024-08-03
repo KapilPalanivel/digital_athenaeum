@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import './ChangePassword.css';
-import { ForgotPasswordComponent } from './ForgotPasswordComponent';
+import { OTPComponent } from './OTPComponent';
 const ResetPasswordPage = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -60,7 +60,7 @@ const ResetPasswordPage = () => {
             </p>
           </>
         ) : (
-          <ForgotPasswordComponent onBack={toggleForgotPassword} />
+          <OTPComponent onBack={toggleForgotPassword} />
         )}
       </div>
     </div>

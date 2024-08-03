@@ -1,0 +1,182 @@
+.forum-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f0f0; /* Light gray background for the page */
+  position: relative; /* Add relative positioning to allow absolute positioning of the button */
+}
+
+.forum-header {
+  background-color: #333; /* Dark gray header */
+  color: #fff; /* White text */
+  padding: 1rem;
+  text-align: center;
+  position: relative; /* Add relative positioning */
+}
+
+.forum-main {
+  flex: 1;
+  padding: 1rem;
+}
+
+.post-card {
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fff; /* White background for posts */
+}
+
+.post-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+.post-content {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.post-author {
+  font-size: 0.875rem;
+  color: #555; /* Darker gray for author text */
+}
+
+.reply-section {
+  margin-top: 1rem;
+  border-top: 1px solid #ddd; /* Light gray border for reply section */
+  padding-top: 1rem;
+}
+
+.reply-input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd; /* Light gray border for textarea */
+  margin-bottom: 0.5rem;
+  background-color: #fafafa; /* Slightly darker background for textarea */
+}
+
+.reply-button {
+  background-color: #333; /* Dark gray button */
+  border: none;
+  border-radius: 4px;
+  color: #fff; /* White text on button */
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.reply-button:hover {
+  background-color: #555; /* Slightly lighter gray on hover */
+}
+
+.reply-card-container {
+  margin: 0.5rem 0;
+}
+
+.reply-card {
+  border-left: 2px solid #ccc; /* Light gray border for replies */
+  padding: 0.5rem;
+  background-color: #f9f9f9; /* Slightly gray background for replies */
+}
+
+.reply-content {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+
+.reply-author {
+  font-size: 0.875rem;
+  color: #777; /* Lighter gray for reply author text */
+}
+
+.delete-button {
+  background-color: #e74c3c; /* Red button */
+  border: none;
+  border-radius: 4px;
+  color: #fff; /* White text on button */
+  font-size: 0.875rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+.replies {
+  padding-left: 1rem;
+}
+
+.forum-footer {
+  background-color: #333; /* Dark gray footer */
+  color: #fff; /* White text */
+  padding: 1rem;
+  text-align: center;
+}
+
+.new-post-button {
+  background-color: #000000; /* Dark gray button */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  position: absolute; /* Absolute positioning */
+  top: 1rem; /* Adjust top position */
+  right: 1rem; /* Adjust right position */
+}
+
+.new-post-button:hover {
+  background-color: #555; /* Slightly lighter gray on hover */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-input, .modal-textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.modal-textarea {
+  height: 100px;
+}
+
+.modal-button {
+  background-color: #000000; /* Dark gray button */
+  border: none;
+  border-radius: 4px;
+  color: #fff; /* White text */
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.modal-button:hover {
+  background-color: #555; /* Slightly lighter gray on hover */
+}

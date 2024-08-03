@@ -12,6 +12,7 @@ import Layout from "./Componenets/Layout";
 import { LoginContext } from "./Componenets/Client/LoginContext";
 import Footer from "./Componenets/Footer/Footer";
 import Home from "./Componenets/Home/Home";
+import ForumPage from "./Componenets/Forum/Forum"
 import ProfilePage from "./Componenets/Client/Profile/ProfilePage";
 import "@radix-ui/themes/styles.css";
 import { Skeleton, Theme } from "@radix-ui/themes";
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <ProfilePage />,
       },
+      {
+        path:"forum",
+        element: <ForumPage/>
+      }
     ],
   },
 ]);

@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useId } from "react";
-import { FaHeart, FaSearch } from 'react-icons/fa';
+import { FaHeart, FaSearch } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import "./Movies.css";
 
-const initailMovies = [
+const initialMovies = [
   {
     title: "The Godfather",
     director: "Francis Ford Coppola",
@@ -276,9 +276,11 @@ const initailMovies = [
 
 const MovieCard = ({ movie, onClick, onFavoriteClick }) => (
   <div className="movie-card" onClick={onClick}>
-    <img src={movie.cover} alt={movie.title} className="movie-cover" />
-    <h3>{movie.title}</h3>
-    <p className="movie-director">{movie.director}</p>
+    <div className="movie-card-content">
+      <img src={movie.cover} alt={movie.title} className="movie-cover" />
+      <h3 className="movie-title">{movie.title}</h3>
+      <p className="movie-director">{movie.director}</p>
+    </div>
     <div className="movie-stats">
       <span>{movie.views} views</span>
       <span>
@@ -296,17 +298,18 @@ const MovieCard = ({ movie, onClick, onFavoriteClick }) => (
 );
 
 function Movies() {
-  const [movies, setMovies] = useState(initailMovies);
+  const [movies, setMovies] = useState(initialMovies);
   const [active, setActive] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredMovies, setFilteredMovies] = useState(initailMovies);
+  const [filteredMovies, setFilteredMovies] = useState(initialMovies);
   const [selectedDirector, setSelectedDirector] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [sortOption, setSortOption] = useState("name");
   const ref = useRef(null);
   const id = useId();
 
-  const directors = [...new Set(initailMovies.map(movie => movie.director))];
-  const genres = [...new Set(initailMovies.map(movie => movie.genre))];
+  const directors = [...new Set(initialMovies.map((movie) => movie.director))];
+  const genres = [...new Set(initialMovies.map((movie) => movie.genre))];
 
   useEffect(() => {
     function onKeyDown(event) {
@@ -339,20 +342,39 @@ function Movies() {
 
   useEffect(() => {
     const lowercasedQuery = searchQuery.toLowerCase();
-    const filtered = movies.filter(movie =>
-      movie.title.toLowerCase().includes(lowercasedQuery) ||
-      movie.director.toLowerCase().includes(lowercasedQuery)
+    const filtered = movies.filter(
+      (movie) =>
+        movie.title.toLowerCase().includes(lowercasedQuery) ||
+        movie.director.toLowerCase().includes(lowercasedQuery)
     );
     setFilteredMovies(filtered);
   }, [searchQuery, movies]);
 
   useEffect(() => {
-    const filtered = movies.filter(movie =>
-      (!selectedDirector || movie.director === selectedDirector) &&
-      (!selectedGenre || movie.genre === selectedGenre)
+    const filtered = movies.filter(
+      (movie) =>
+        (!selectedDirector || movie.director === selectedDirector) &&
+        (!selectedGenre || movie.genre === selectedGenre)
     );
     setFilteredMovies(filtered);
   }, [selectedDirector, selectedGenre, movies]);
+
+  useEffect(() => {
+    const sortedMovies = [...filteredMovies].sort((a, b) => {
+      switch (sortOption) {
+        case "director":
+          return a.director.localeCompare(b.director);
+        case "favorites":
+          return b.favorites - a.favorites;
+        case "comments":
+          return b.comments - a.comments;
+        case "name":
+        default:
+          return a.title.localeCompare(b.title);
+      }
+    });
+    setFilteredMovies(sortedMovies);
+  }, [sortOption, filteredMovies]);
 
   const handleFavoriteClick = (index) => {
     const newMovies = [...movies];
@@ -361,71 +383,103 @@ function Movies() {
     setMovies(newMovies);
   };
 
+  const handleDirectorChange = (e) => {
+    setSelectedDirector(e.target.value);
+  };
+
+  const handleGenreChange = (e) => {
+    setSelectedGenre(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
   return (
-    <div className="main-container">
-      {/* Sidebar */}
-      <div className="filter-sidebar">
-        <div className="filter-section">
-          <label htmlFor="director-filter">Director</label>
-          <select
-            id="director-filter"
-            value={selectedDirector}
-            onChange={e => setSelectedDirector(e.target.value)}
-          >
-            <option value="">All Directors</option>
-            {directors.map((director, index) => (
-              <option key={index} value={director}>{director}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="filter-section">
-          <label htmlFor="genre-filter">Genre</label>
-          <select
-            id="genre-filter"
-            value={selectedGenre}
-            onChange={e => setSelectedGenre(e.target.value)}
-          >
-            <option value="">All Genres</option>
-            {genres.map((genre, index) => (
-              <option key={index} value={genre}>{genre}</option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Main content */}
-      <div className="main-content">
+    <div className="movies-container">
+      <div className="movies-header">
         <div id="movie_header">
-          <div id="movie_icon">
-            {/* Add your movie icon here */}
-          </div>
+          <div id="movie_icon">{/* Add your movie icon here */}</div>
           <div id="movies_des">
             <h1 id="movie_h1">Movies</h1>
             <p id="movie_p">
-              Welcome to the Digital Authenaeum Movies collection! Discover a treasure trove of public domain movies, thoughtfully curated for your reading pleasure. Dive into timeless classics, rare manuscripts, and educational gems, all free and legally accessible. Whether for study or leisure, our unique collection promises to enrich your literary journey with unrestricted, high-quality reads.
+              Welcome to the Digital Athenaeum Movies collection! Discover a
+              treasure trove of public domain movies, thoughtfully curated for
+              your viewing pleasure. Dive into timeless classics, rare films,
+              and educational gems, all free and legally accessible. Whether for
+              study or leisure, our unique collection promises to enrich your
+              cinematic journey with unrestricted, high-quality watches.
             </p>
           </div>
         </div>
-        
+
         <div className="search-container">
-          <input 
-            type="text" 
-            placeholder="Search Movies..." 
+          <input
+            type="text"
+            placeholder="Search Movies..."
             value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button ><FaSearch /> Search</button>
+          <button>
+            <FaSearch /> Search
+          </button>
         </div>
-        
+      </div>
+      <div className="main-content-container">
+        <div className="filter-sidebar">
+          <h3>Filters</h3>
+          <div className="filter-group">
+            <label htmlFor="director-select">Director:</label>
+            <select
+              id="director-select"
+              value={selectedDirector}
+              onChange={handleDirectorChange}
+            >
+              <option value="">All Directors</option>
+              {directors.map((director) => (
+                <option key={director} value={director}>
+                  {director}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label htmlFor="genre-select">Genre:</label>
+            <select
+              id="genre-select"
+              value={selectedGenre}
+              onChange={handleGenreChange}
+            >
+              <option value="">All Genres</option>
+              {genres.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="filter-group">
+            <label htmlFor="sort-select">Sort by:</label>
+            <select
+              id="sort-select"
+              value={sortOption}
+              onChange={handleSortChange}
+            >
+              <option value="name">Name</option>
+              <option value="director">Director</option>
+              <option value="favorites">Likes</option>
+              <option value="comments">Comments</option>
+            </select>
+          </div>
+        </div>
         <div className="movie-list">
           {filteredMovies.length > 0 ? (
             filteredMovies.map((movie, index) => (
-              <MovieCard 
-                key={index} 
-                movie={movie} 
+              <MovieCard
+                key={index}
+                movie={movie}
                 onClick={() => setActive(movie)}
-                onFavoriteClick={() => handleFavoriteClick(index)} 
+                onFavoriteClick={() => handleFavoriteClick(index)}
               />
             ))
           ) : (
@@ -436,30 +490,38 @@ function Movies() {
 
       <AnimatePresence>
         {active && (
-          <motion.div 
+          <motion.div
             className="modal-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.div 
+            <motion.div
               className="modal-content"
               ref={ref}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
             >
-              <button className="modal-close" onClick={() => setActive(null)}>&times;</button>
-              <img src={active.cover} alt={active.title} className="modal-image" />
+              <button className="modal-close" onClick={() => setActive(null)}>
+                &times;
+              </button>
+              <img
+                src={active.cover}
+                alt={active.title}
+                className="modal-image"
+              />
               <div className="modal-details">
                 <div className="modal-title">
                   {active.title}
                   <span className="modal-director">-{active.director}</span>
                 </div>
                 <div className="modal-description">{active.description}</div>
-                <a href="#read-more" className="read-button">Read More</a>
+                <a href="#read-more" className="read-button">
+                  Watch Now
+                </a>
               </div>
-            </motion.div>\
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

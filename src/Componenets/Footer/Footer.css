@@ -1,9 +1,7 @@
-/* Footer.css */
-
+/* Footer Styles */
 .footer {
   background-color: #1a1a1a;
   color: #ffffff;
-  /* padding: 50px 0; */
   margin: 0;
 }
 
@@ -106,7 +104,7 @@
 /* Layout Styles */
 .footer .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Override space-around */
   flex-wrap: wrap;
 }
 
@@ -150,7 +148,6 @@
   }
 }
 
-/* Ensure no extra margin or padding */
 .container-fluid.bg-dark.text-light {
   margin-bottom: 0; /* Remove bottom margin */
   padding-top: 0; /* Remove top padding */
