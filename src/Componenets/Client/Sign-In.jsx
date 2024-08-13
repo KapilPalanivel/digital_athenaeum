@@ -12,7 +12,6 @@ const Login = ({ setIsLogin, setIsForgotPassword }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check login state when the component mounts
     const loginState = localStorage.getItem('isLoggedIn');
     if (loginState === 'true') {
       setIsLoggedIn(true);
@@ -26,13 +25,9 @@ const Login = ({ setIsLogin, setIsForgotPassword }) => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Here you would typically handle the login logic (e.g., API call to authenticate)
-    // For now, we'll just set the isLoggedIn state to true
     setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true'); // Save login state to localStorage
+    localStorage.setItem('isLoggedIn', 'true');
     navigate("/");
-
-    // Optionally, redirect to another page or perform other actions upon successful login
   };
 
   return (

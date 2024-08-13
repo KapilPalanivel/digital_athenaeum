@@ -16,7 +16,8 @@ import ForumPage from "./Componenets/Forum/Forum"
 import ProfilePage from "./Componenets/Client/Profile/ProfilePage";
 import "@radix-ui/themes/styles.css";
 import { Skeleton, Theme } from "@radix-ui/themes";
-import Login from "./Componenets/Client/Sign-In";
+import BookDetails from "./Componenets/Common/Book/BookDetails";
+import MovieDetails from "./Componenets/Common/Movies/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -55,11 +56,15 @@ const router = createBrowserRouter([
       {
         path:"forum",
         element: <ForumPage/>
-      } , 
+      },
       {
-        path:"/login" , 
-        element : <Login />
-      }
+        path:"BookDetails",
+        element: <BookDetails/>
+      },
+      {
+        path:"MovieDetails",
+        element: <MovieDetails/>
+      } , 
     ],
   },
 ]);

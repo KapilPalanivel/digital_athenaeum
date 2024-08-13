@@ -517,8 +517,8 @@ function Movies() {
                   <span className="modal-director">-{active.director}</span>
                 </div>
                 <div className="modal-description">{active.description}</div>
-                <a href="#read-more" className="read-button">
-                  Watch Now
+                <a href="/MovieDetails" className="read-button">
+                  View More
                 </a>
               </div>
             </motion.div>
