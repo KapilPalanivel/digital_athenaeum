@@ -1,0 +1,78 @@
+.book-details-container {
+    display: flex;
+    flex-direction: column; /* Change to column to stack content vertically */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light monochrome background */
+    color: #333; /* Dark monochrome text */
+    height: 100vh;
+    overflow-y: auto; /* Add vertical scrolling if content overflows */
+  }
+  
+  .book-details-content {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 20px; /* Add margin to separate from the description */
+  }
+  
+  .book-details-cover {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .book-details-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .book-details-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .book-details-author {
+    font-size: 1.5rem;
+    color: #555; /* Slightly lighter for distinction */
+  }
+  
+  .book-details-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 1200px; /* Ensure description matches the width of the content area */
+    width: 100%;
+    margin-bottom: 20px; /* Add margin to separate from the summary */
+  }
+  
+  .book-details-summary {
+    max-width: 1200px; /* Ensure summary matches the width of the content area */
+    width: 100%;
+  }
+  
+  .book-details-summary h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .book-details-summary p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .book-details-stats {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 20px; /* Space above stats */
+  color: #555; /* Slightly lighter text for distinction */
+}
+
+.book-details-stats p {
+  margin: 5px 0; /* Spacing between stats items */
+}

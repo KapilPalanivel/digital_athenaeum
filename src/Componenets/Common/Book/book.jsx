@@ -15,7 +15,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaEAqOg59kQ2fbyn13gSPzSmJhcqbCP8zktA&s",
     description:
-      "A tragedy by William Shakespeare, Hamlet is a story of revenge, corruption, and madness.",
+      "William Shakespeare's 'Hamlet' is a profound tragedy that delves into themes of revenge, corruption, and madness. The play revolves around Prince Hamlet of Denmark, who returns home to find his father murdered and his mother hastily remarried to his uncle, Claudius. Haunted by the ghost of his father, Hamlet is consumed by grief and rage, leading him to vow to avenge his father’s death. The narrative intricately explores Hamlet’s internal struggle with his moral duty, his contemplation of existence, and the impact of his actions on the royal court. Shakespeare's portrayal of Hamlet's psychological torment and his existential reflections makes this play a timeless exploration of the human condition.",
     favorited: false,
     content: () => (
       <p>
@@ -35,7 +35,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX2DbbbXHV86ZqzUvJlVH1i74-Ub2nt2RpZQ&s",
     description:
-      "A work of scientific literature by Charles Darwin that is considered to be the foundation of evolutionary biology.",
+      "'On the Origin of Species' by Charles Darwin is a groundbreaking work that laid the foundation for modern evolutionary biology. Published in 1859, this seminal text introduced the theory of natural selection, arguing that species evolve over time through a process of adaptation driven by environmental pressures. Darwin meticulously presents evidence from various fields, including paleontology, biogeography, and embryology, to support his theory. His work challenged existing scientific and theological views, igniting a revolution in the understanding of biological diversity and the development of life on Earth. The book remains a cornerstone of evolutionary science and continues to influence contemporary scientific thought.",
     favorited: false,
     content: () => (
       <p>
@@ -46,7 +46,7 @@ const initialBooks = [
     ),
   },
   {
-    title: " and PrejudicePride",
+    title: "Pride and Prejudice",
     author: "Jane Austen",
     genre: "Romance",
     views: "600K",
@@ -55,7 +55,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt5ryBDA_Ow-wPDGgsRGegarWjLzN763rTlQ&s",
     description:
-      "A romantic novel by Jane Austen, focusing on issues of class, marriage, and morality in the early 19th century.",
+      "Jane Austen’s 'Pride and Prejudice' is a classic romance novel that offers a sharp critique of early 19th-century English society. Through the eyes of Elizabeth Bennet, the novel addresses themes of social class, marriage, and personal integrity. Elizabeth navigates the complexities of societal expectations and her own evolving feelings for Mr. Fitzwilliam Darcy, a wealthy and initially aloof gentleman. Austen's keen observations and witty dialogue provide a rich commentary on class distinctions and gender roles, while Elizabeth’s journey towards self-awareness and understanding challenges traditional norms. The novel remains celebrated for its incisive character studies and enduring appeal.",
     favorited: false,
     content: () => (
       <p>
@@ -75,7 +75,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTehXRqt5CJ24R8uMrI06RvxZ6rRYsYo1qvzg&s",
     description:
-      "An epic tale of the voyage of the whaling ship Pequod, led by Captain Ahab, who is obsessed with revenge against Moby Dick, a giant white whale.",
+      "'Moby-Dick' by Herman Melville is an epic and complex narrative that explores themes of obsession, revenge, and the struggle between man and nature. The novel follows Captain Ahab’s relentless quest to kill Moby Dick, a giant white whale that had previously maimed him. Through the eyes of Ishmael, a sailor aboard Ahab's whaling ship, the story delves into philosophical and existential reflections on fate, free will, and the natural world. Melville’s intricate prose and symbolic depth make 'Moby-Dick' a cornerstone of American literature, offering profound insights into the human psyche and the moral ambiguities of revenge.",
     favorited: false,
     content: () => (
       <p>
@@ -86,7 +86,6 @@ const initialBooks = [
       </p>
     ),
   },
-  // Paid Books in English
   {
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
@@ -97,7 +96,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKi5lknrw7SIwZ01RQRqyvtXz2bFxrUsGVpA&s",
     description:
-      "A novel set in the Jazz Age that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
+      "'The Great Gatsby' by F. Scott Fitzgerald is a defining novel of the Jazz Age, capturing the decadence and moral decay of 1920s America. The story centers on Jay Gatsby, a wealthy and enigmatic man who throws extravagant parties in hopes of rekindling his past romance with Daisy Buchanan. Through the eyes of the narrator, Nick Carraway, Fitzgerald offers a critical examination of the American Dream, exploring themes of aspiration, wealth, and the pursuit of happiness. The novel's lyrical prose and tragic narrative reveal the hollowness of Gatsby’s dreams and the underlying social and moral conflicts of the era.",
     favorited: false,
     content: () => (
       <p>
@@ -118,7 +117,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYfjfwChyuT8LxMzAxede28TsHDTlJVqdlzA&s",
     description:
-      "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.",
+      "George Orwell’s '1984' is a chilling dystopian novel that serves as a stark warning against the dangers of totalitarianism. Set in a grim future where perpetual war, omnipresent surveillance, and historical manipulation define daily life, the story follows Winston Smith, a low-ranking member of the ruling Party. Winston’s struggle against the oppressive regime led by Big Brother exposes the dehumanizing effects of absolute power and the erasure of individual thought. Orwell’s portrayal of a society stripped of privacy, truth, and autonomy remains a powerful critique of authoritarianism and a profound exploration of personal freedom.",
     favorited: false,
     content: () => (
       <p>
@@ -130,7 +129,6 @@ const initialBooks = [
       </p>
     ),
   },
-  // Public Domain Books in Tamil
   {
     title: "Ponniyin Selvan",
     author: "Kalki Krishnamurthy",
@@ -141,7 +139,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL8BkaBEt1ILfMxRfzF7WrA6PHUYjIcTS52Q&s",
     description:
-      "A historical novel set in the Chola Dynasty, featuring the early life of the Chola Prince Arulmozhivarman.",
+      "'Ponniyin Selvan' by Kalki Krishnamurthy is an epic historical novel set during the Chola Dynasty in medieval South India. The narrative follows the life of the Chola Prince Arulmozhivarman, who later becomes Rajaraja Chola I. Through a richly detailed portrayal of the political intrigue, warfare, and cultural vibrancy of the time, the novel explores the prince’s rise to power and his contributions to the Chola empire. Krishnamurthy’s work weaves together historical facts with fictional elements to create a captivating saga that highlights the grandeur of the Chola dynasty and its impact on Indian history.",
     favorited: false,
     content: () => (
       <p>
@@ -162,7 +160,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLKl8rHPkpdXgswAzv_CIpNUxLSpHYB3FKIA&s",
     description:
-      "A Tamil historical novel that tells the story of the Chola prince Parthiban and his dream of a Chola empire.",
+      "'Parthiban Kanavu' is a Tamil historical novel by Kalki Krishnamurthy that delves into the dreams and aspirations of the Chola prince Parthiban. Set against the backdrop of a tumultuous era, the story chronicles Parthiban's vision of establishing a Chola empire and the struggles he faces in realizing this ambition. The novel intricately depicts the political landscape of the time, the challenges of leadership, and the personal sacrifices made by the prince. Krishnamurthy’s narrative combines historical events with dramatic storytelling to explore themes of ambition, loyalty, and perseverance.",
     favorited: false,
     content: () => (
       <p>
@@ -173,7 +171,6 @@ const initialBooks = [
       </p>
     ),
   },
-  // Paid Books in Tamil
   {
     title: "Sivagamiyin Sabadham",
     author: "Kalki Krishnamurthy",
@@ -184,7 +181,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSrTG6iGnrwhRUJwTeAMCNDXxlymABi4hdhg&s",
     description:
-      "A Tamil historical novel set in the Pallava dynasty, focusing on the life of Sivagami, a dancer, and her vow.",
+      "'Sivagamiyin Sabadham' by Kalki Krishnamurthy is a Tamil historical novel set in the Pallava dynasty, focusing on the life of Sivagami, a talented dancer, and her vow of revenge against the Pallava king. The story is set in a time of political intrigue and cultural flourishing, exploring themes of loyalty, vengeance, and the conflict between personal desires and societal expectations. The novel vividly portrays the courtly life, the artistic achievements of the period, and the personal drama of its characters, offering a compelling narrative that combines historical detail with emotional depth.",
     favorited: false,
     content: () => (
       <p>
@@ -205,7 +202,7 @@ const initialBooks = [
     cover:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7kjcU0YPcXhUW3ehAN1oSKbLBGppTWhydMA&s",
     description:
-      "An ancient Tamil text consisting of 1,330 couplets or Kurals, dealing with everyday virtues of an individual.",
+      "'Thirukkural' is an ancient Tamil text attributed to the sage Thiruvalluvar. Comprising 1,330 couplets, or Kurals, the text is divided into three main sections: Aram (virtue), Porul (wealth), and Inbam (love). Each section addresses different aspects of human life, from ethical behavior and social responsibility to personal relationships and happiness. The concise and profound nature of the couplets provides timeless wisdom on leading a virtuous and balanced life. 'Thirukkural' has been highly regarded for its philosophical depth and practical guidance, making it a revered work in Tamil literature and a significant source of moral and ethical insight.",
     favorited: false,
     content: () => (
       <p>
@@ -462,7 +459,7 @@ function Books() {
                   <span className="modal-author">-{active.author}</span>
                 </div>
                 <div className="modal-description">{active.description}</div>
-                <a href="#read-more" className="read-button">
+                <a href="/BookDetails" className="read-button">
                   Read More
                 </a>
               </div>
