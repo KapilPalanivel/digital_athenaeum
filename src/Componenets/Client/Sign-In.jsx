@@ -71,6 +71,16 @@ const Login = ({ setIsLogin, setIsForgotPassword }) => {
           </div>
           <button type="submit" className="button-27">Login</button>
         </form>
+        <div className="d-flex justify-content-center mt-3">
+
+        <div className="bg-dark row  text-center border border-warning-subtle  rounded " style={{width:'60%' , height : '50px' , fontSize : '12px' , marginTop : '5px'}}>
+            {/* <div className="col-md-6 mt-2">Login Using Github</div> */}
+            
+              <a className="col-md-6 mt-3 fw-bold text-decoration-none text-light" href="http://localhost:8080/login"> Google</a>
+              <a className="col-md-6 mt-3 fw-bold text-decoration-none text-light" href="http://localhost:8080/login"> GitHub</a>
+           
+        </div>
+        </div>
       </div>
       <p className="login-bottom-p">
         <span>Don't have an account?</span> <a href="/" onClick={(e) => { e.preventDefault(); setIsLogin(false); }}>Sign-Up</a>
